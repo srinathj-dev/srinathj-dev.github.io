@@ -107,7 +107,6 @@ nav a:hover {
   flex-direction: column;
   row-gap: 20px;
   align-content: center;
- 
   /* align-items: ; */
 }
 
@@ -140,6 +139,7 @@ position:relative;
   font-size: 90px;
   font-weight: 700;
   line-height: 90px;
+  color: rgb(36, 38, 47);
 }
 
 h4 {
@@ -184,9 +184,9 @@ h5 {
 }
 
 .get-in-touch:hover {
-  
   background-color: rgb(131, 50, 236);
   color: white;
+  transition: all 0.5s ease-in-out 0s;
 }
 
 .Proj-button {
@@ -210,6 +210,7 @@ h5 {
 .Proj-button:hover{
   background-color: black;
   color: white;
+  transition: all 0.6s ease-in-out 0s;
 }
 
 .btn-rw {
@@ -217,9 +218,7 @@ h5 {
   gap: 15px;
 }
 
-button {
-  
-}
+
 
 .para {
   display: flex;
@@ -352,7 +351,6 @@ font-weight: 700;
 height:30.7969px;
 letter-spacing:normal;
 line-height:30.8px;
-
 -webkit-font-smoothing:antialiased;
 }
 
@@ -377,13 +375,10 @@ line-height:25px;
   height: 200px;
   /* position: relative; */
   width: 100%;
-
   align-content:center;
   align-items:center;
   column-gap:40px;
   /* flex-basis:auto; */
-  flex-grow:0;
-  flex-shrink:0;
   flex-wrap:nowrap;
   justify-content:flex-start;
   opacity:1;
@@ -399,20 +394,18 @@ line-height:25px;
 }
 
 .wPlaces {
-  align-content: space-around;
-  align-items: flex-start;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: 20px;
+  /* gap: 20px; */
   height: 200px;
-  /* justify-content: center; */
+  justify-content: center;
   padding: 0;
   position: relative;
-  border-left: 2px solid rgb(36, 38, 47);
+  box-sizing: border-box;
 }
 
-.s, .pI, .gEmp, .nPraja{
+.pB, .gB, .piB, .sB{
   display: block;
   font-family: Poppins, "Poppins Placeholder", sans-serif;
   display: block; 
@@ -424,22 +417,15 @@ line-height:25px;
   padding-left: 10px;
   /* border-left: 1px solid rgb(36, 38, 47); */
    -webkit-font-smoothing:antialiased; 
-} 
+  border-left: 2px solid rgb(36, 38, 47);
+  padding: 12px;
+}
 
-.s:hover,
-.pI:hover,
-.gEmp:hover,
-.nPraja:hover {
-  display: block;
-  font-family: Poppins, "Poppins Placeholder", sans-serif;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  color: rgb(131, 50, 236);
-  line-height: 26.4px;
-  padding-left: 10px;
-  border-left: 3px solid rgb(131, 50, 236);
-  -webkit-font-smoothing: antialiased;
+.pB:hover, .gB:hover, .piB:hover, .sB:hover{
+border-left: 2px solid rgb(110, 6, 242);
+padding: 12px;
+color: rgb(110, 6, 242);
+transition: all 0.5s ease-in-out 0s;
 }
 
 .svg-block{
@@ -592,10 +578,10 @@ footer a {
 .cop-rights {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-content: flex-end;
   /* justify-content: flex-end; */
   align-items: flex-end;
-  right: 0;
+  text-align: right;
 }
 
 @media only screen and (max-width: 768px) {
