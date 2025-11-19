@@ -21,7 +21,7 @@ body {
 
 header {
   color: rgb(36, 38, 47);
-  position: fixed;
+  /* position: fixed; */
   /* border: 1px solid rgb(110, 6, 242); */
   align-items: center;
   display: flex;
@@ -524,19 +524,18 @@ text-decoration-color:rgb(78, 82, 90);
 
 footer {
   /* background-color: rgb(104, 40, 13); */
-  display: grid;
-  grid-auto-rows: minmax(0, 1fr);
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
   /* bottom: 0; */
   position: relative;
   width: 100%;
-  bottom: 20px;
+  bottom: 30px;
+  row-gap: 50px;
 }
 
-footer a {
+/* footer a {
   color: #0e0d0d;
-}
+} */
 
 .f-nav {
   justify-content: flex-start;
@@ -563,9 +562,14 @@ footer a {
   transition: all 0.5s ease-in-out 0s;
 }
 
+.fbottom{
+  display: flex;
+  justify-content: space-between;
+}
+
 .ff {
   display: grid;
-  row-gap: 10px;
+  row-gap: 20px;
 }
 
 .iiw {
@@ -578,9 +582,7 @@ footer a {
 .cop-rights {
   display: flex;
   flex-direction: column;
-  align-content: flex-end;
-  /* justify-content: flex-end; */
-  align-items: flex-end;
+ justify-content: flex-end;
   text-align: right;
 }
 
