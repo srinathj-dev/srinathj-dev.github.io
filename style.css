@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", "Poppins Placeholder", sans-serif;
   scroll-behavior: smooth;
-  transition: all 0.5s ease-in-out 0s;
+  
   -webkit-font-smoothing: antialiased;
 }
 
@@ -48,7 +48,7 @@ nav a {
   font-size: 17px;
   margin: 0px;
   padding: 3px;
-
+  transition: all 0.5s ease-in-out 0s;
 }
 
 nav a.default-nav {
@@ -445,6 +445,11 @@ border: none;
   color: rgb(110, 6, 242);
   transition: all 0.5s ease-in-out 0s;
 }
+.cB-active{
+  border-left: 2px solid rgb(110, 6, 242);
+  padding: 12px;
+  color: rgb(110, 6, 242);
+}
 
 .svgBlock {
   width: 20px;
@@ -763,8 +768,6 @@ header label {
     height: 64;
   }
 
-  
-
   .btnRw {
     display: flex;
     flex-basis: auto;
@@ -973,6 +976,12 @@ border: none;
   transition: all 0.5s ease-in-out 0s;
 }
 
+.cB-active{
+  border-left: 2px solid rgb(110, 6, 242);
+  padding: 12px;
+  color: rgb(110, 6, 242);
+}
+
 .svgBlock {
   width: 20px;
   height: 20px;
@@ -1148,7 +1157,7 @@ footer {
   header {
     color: rgb(36, 38, 47);
     font-size: 16px;
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
     position: relative;
     box-sizing: border-box;
     font-family: Poppins, "Poppins Placeholder", sans-serif;
@@ -1344,13 +1353,13 @@ footer {
   }
 
   .profImg {
-    height: 400px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 20px;
+    padding-top: 30px;
     position: relative;
     width: 400px;
     width: 100%;
@@ -1497,12 +1506,18 @@ footer {
   transition: all 0.5s ease-in-out 0s;
 }
 
+.cB-active{
+  border-bottom: 2px solid rgb(110, 6, 242);
+  padding: 12px;
+  color: rgb(110, 6, 242);
+}
+
   .secSkills {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     gap: 25px;
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
   }
 
   .skills {
@@ -1578,7 +1593,7 @@ footer {
   header {
     color: rgb(36, 38, 47);
     font-size: 16px;
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
     position: relative;
     box-sizing: border-box;
     font-family: Poppins, "Poppins Placeholder", sans-serif;
@@ -1742,23 +1757,6 @@ footer {
     height: 64;
   }
 
-  .profImg {
-    display: flex;
-    height: 500px;
-    align-content: center;
-    justify-content: center;
-  }
-
-  .imgBrdr {
-    height: 300px;
-    width: 300px;
-  }
-
-  .profile img {
-    height: 238px;
-    width: 238px;
-  }
-
   .btnRw {
     display: flex;
     flex-basis: auto;
@@ -1793,11 +1791,19 @@ footer {
     align-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 50px;
     position: relative;
-    width: 385px;
+    /* width: 385px; */
   }
 
+  .imgBrdr {
+    height: 350px;
+    width: 350px;
+  }
+
+  .profile img {
+    height: 280px;
+    width: 280px;
+  }
   .pSection {
     display: flex;
     flex-direction: column;
@@ -1937,6 +1943,12 @@ footer {
   padding: 12px;
   color: rgb(110, 6, 242);
   transition: all 0.5s ease-in-out 0s;
+}
+
+.cB-active{
+  border-bottom: 2px solid rgb(110, 6, 242);
+  padding: 12px;
+  color: rgb(110, 6, 242);
 }
 
   .secSkills {
