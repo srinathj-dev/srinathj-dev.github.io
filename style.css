@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: "Poppins", "Poppins Placeholder", sans-serif;
   scroll-behavior: smooth;
-
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,7 +49,7 @@ nav a {
   text-decoration: none;
   font-size: 17px;
   margin: 0px;
-  padding: 3px;
+  /* padding: 3px; */
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -190,7 +189,6 @@ h5 {
   font-weight: 600;
   line-height: 16.8px;
   text-decoration: none;
-  background-color: transparent;
   width: 142px;
   height: 40px;
   border: 1px solid black;
@@ -974,7 +972,6 @@ footer {
   .cB {
     display: block;
     font-family: Poppins, "Poppins Placeholder", sans-serif;
-    display: block;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -1509,39 +1506,53 @@ footer {
     flex-direction: row;
     text-wrap: nowrap;
     justify-content: flex-start;
-    width: 95%;
+    width: 100%;
     overflow-x: scroll;
   }
 
   .cB {
     display: block;
     font-family: Poppins, "Poppins Placeholder", sans-serif;
-    display: block;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
     color: rgb(36, 38, 47);
     line-height: 26.4px;
-    padding-left: 10px;
     border-left: none;
-    width: 372px;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
     border-bottom: 2px solid rgb(36, 38, 47);
-    padding: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left:0px;
   }
 
   .cB:hover {
     border-left: none;
     border-bottom: 2px solid rgb(110, 6, 242);
-    padding: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left:0px;
     color: rgb(110, 6, 242);
     transition: all 0.5s ease-in-out 0s;
   }
 
   .cB-active {
     border-bottom: 2px solid rgb(110, 6, 242);
-    padding: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 0px;
     color: rgb(110, 6, 242);
+  }
+
+  .wDone{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .secSkills {
@@ -1973,38 +1984,49 @@ footer {
     flex-direction: row;
     text-wrap: nowrap;
     justify-content: flex-start;
-    width: 95%;
+    align-items: flex-start;
+    width: 100%;
     overflow-x: scroll;
   }
 
   .cB {
     display: block;
     font-family: Poppins, "Poppins Placeholder", sans-serif;
-    display: block;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
     color: rgb(36, 38, 47);
     line-height: 26.4px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     border-left: none;
-    width: 372px;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
     border-bottom: 2px solid rgb(36, 38, 47);
-    padding: 12px;
+     padding-right: 12px; 
+     padding-top: 12px;
+     padding-bottom: 12px;
+     padding-left: 0px;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .cB:hover {
     border-left: none;
     border-bottom: 2px solid rgb(110, 6, 242);
-    padding: 12px;
+    padding-right: 12px; 
+     padding-top: 12px;
+     padding-bottom: 12px;
+     padding-left: 0px;
     color: rgb(110, 6, 242);
     transition: all 0.5s ease-in-out 0s;
   }
 
   .cB-active {
     border-bottom: 2px solid rgb(110, 6, 242);
-    padding: 12px;
+    padding-right: 24px; 
+     padding-top: 12px;
+     padding-bottom: 12px;
+     padding-left: 0px;
     color: rgb(110, 6, 242);
   }
 
