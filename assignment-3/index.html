@@ -49,10 +49,10 @@
             class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400">Log-in</a>
         </div>
         <div class="relative lg:hidden ">
-          <input type="checkbox" id="menu-toggle" class="peer hidden" />
+          <input type="checkbox" id="menu-toggle" class="peer hidden" 
+          onchange="document.getElementById('menu-icon').className=this.checked ? 'fa-solid fa-xmark' : 'fa fa-bars';"/>
           <label for="menu-toggle" class="cursor-pointer px-2 text-2xl hover:text-yellow-400 lg:hidden">
-            <i class="fa-solid fa-bars inline-block peer-checked:hidden"></i>
-            <i class="fa-solid fa-xmark hidden peer-checked:inline-block"></i>
+            <i id="menu-icon" class="fa-solid fa-bars inline-block peer-checked:hidden"></i>
           </label>
           <div class="fixed mt-4 left-0 w-full hidden transition-all duration-600 peer-checked:block md:hidden">
             <div class="relative">
