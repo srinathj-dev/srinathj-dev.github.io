@@ -24,8 +24,10 @@
         </div>
       </div>
       <div class="threeMenu">
-        <input type="checkbox" id="menu-bar">
-        <label for="menu-bar">Menu</label>
+        <input type="checkbox" id="menu-bar" onchange="document.getElementById('exment').className=this.checked ? 'fa fa-xmark' : 'fa fa-bars'"/>
+        <label for="menu-bar" class="fa fa-bars" id="exment">
+          <!-- <i class="fa fa-bars"></i> -->
+        </label>
         <nav class="navBar">
           <a href="index.html" class="default-nav">Home</a>
           <a href="#aboutMe">About</a>

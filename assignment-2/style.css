@@ -66,6 +66,9 @@ nav a:hover {
 .cName {
   display: none;
 }
+#exment{
+  display: none;
+}
 
 header label {
   align-items: baseline;
@@ -1194,7 +1197,7 @@ footer {
   }
 
   .threeMenu {
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1224,23 +1227,34 @@ footer {
   }
 
   header .navBar {
-    position: absolute;
+    /* position: absolute; */
     top: 100%;
     left: 0;
-    right: 0;
+    /* right: 0; */
     float: right;
     display: none;
+     background-color: white;
   }
+
+  #menu-bar,
+.cName {
+  display: none;
+}
+#exment{
+  display: block;
+}
 
   .navBar {
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     height: 64px;
     position: absolute;
-    transform: none;
-    transform-origin: 186px 32px;
+    left: 11%;
+    /* transform: none; */
+    /* transform-origin: 186px 32px; */
     unicode-bidi: isolate;
+    width: 80dvw;
   }
 
   nav a {
@@ -1248,7 +1262,7 @@ footer {
     flex-direction: column;
     color: rgb(102, 102, 102);
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
     margin: 0px;
   }
 
@@ -1262,12 +1276,13 @@ footer {
     justify-content: flex-start;
   }
 
-  #menu-bar {
+  /* #menu-bar {
     position: absolute;
-  }
+  } */
 
   #menu-bar:checked ~ nav {
-    display: contents;
+    display: block;
+    
     /* z-index: 1; */
   }
 
@@ -1666,7 +1681,7 @@ footer {
   }
 
   .threeMenu {
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1696,9 +1711,9 @@ footer {
   }
 
   header .navBar {
-    position: absolute;
+    /* position: absolute; */
     top: 100%;
-    left: 0;
+    /* left: 0; */
     right: 0;
     float: right;
     display: none;
@@ -1708,11 +1723,18 @@ footer {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 64px;
+    height: 180px;
     position: absolute;
     transform: none;
     transform-origin: 186px 32px;
     unicode-bidi: isolate;
+    z-index: 16;
+   
+    -webkit-box-shadow: 8px 10px 10px -10px rgb(110, 6, 242);
+    
+    width: 100%;
+    border-bottom-left-radius:  12px;
+    border-bottom-right-radius:  12px;
   }
 
   nav a {
@@ -1722,6 +1744,7 @@ footer {
     text-decoration: none;
     font-size: 22px;
     margin: 0px;
+    
   }
 
   .navBar a:hover {
@@ -1739,7 +1762,8 @@ footer {
   }
 
   #menu-bar:checked ~ nav {
-    display: contents;
+    display: block;
+    left:0;
     /* z-index: 1; */
   }
 
