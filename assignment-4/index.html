@@ -9,8 +9,6 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-
-
 <body class="flex justify-center w-dvh lg:p-6 align-items">
 	<div  id="mainContainer"class="flex justify-center bg-gradient-to-br from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl">
 		<div class=" flex  container bg-white/10 backdrop-blur-md border-white/20  opacity-80 justify-center h-[620px] rounded-3xl  border">
@@ -43,20 +41,26 @@
 						<img id="image" src="" alt="" class="w-40 h-40 object-cover rounded-full  absolute">
 					</div>
 				</div>
-				<div class = "w-full h-64 flex flex-col justify-center  ">
-					<button id="vis" class=" flex justify-center items-center text-center bg-white/10 backdrop-blur-md  border-white/20 w-6 h-6 rounded-md mb-2" onclick="visibleBtn()"><i class=" rounded-md fa-solid fa-eye"></i></button>
+				<div class = "w-full h-64 flex flex-col justify-start  ">
+					<button id="vis" class=" flex justify-center items-center text-center bg-white/10 backdrop-blur-md  border-white/20 w-6 py-1 rounded-md mb-2" onclick="visibleBtn()"><i class=" rounded-md fa-solid fa-eye"></i></button>
 					<div class=" w-full border-b pb-2 flex flex-col text-center gap-4 ">
 						<div id ="nameContainer" class ="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600  hover:border-teal-400 transition">
 							<i class="fa-solid fa-user text-slate-400"></i>
-							<h2 class="w-full text-md text-slate-100 px-2 outline-none antialiased font-sans"  id="name" >Full Name</h2>
+              
+							  <h2 class="w-full text-md text-slate-100 px-2 outline-none antialiased font-sans"  id="name"></h2>
+							  <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Full Name"  id="nameI">
+              
 						</div>
-						<div id ="placeContainer" class ="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 shadow-lg hover:border-teal-400 transition">
+						<div id ="placeContainer" class ="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 shadow-lg hover:border-teal-400 transition block">
 							<i class="fas fa-map-marker-alt text-slate-400"></i>
-							<h2 class="w-full text-slate-100 px-2 font-sans outline-none  antialiased visible" id="place"> Warangal </h2>
+							<h2 class="w-full text-slate-100 px-2 font-sans outline-none  antialiased" id="place"></h2>
+              <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Place"  id="placeI">
 						</div>
 					</div >
 					<div id="bioContainer" class=" w-full my-2 text-center px-3 py-2 flex justify-center items-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-md antialiased hover:border-teal-400 transition">
-						<p class="w-full text-sm text-slate-100 px-2 leading-relaxed break-words line-clamp-3 outline-none antialiased"  id="bio">Enter Bio</p>
+						<i class="fas fa-file-alt text-slate-400"></i>	
+            <p class="w-full text-sm text-slate-100 px-2 leading-relaxed break-words line-clamp-3 outline-none antialiased"  id="bio"></p>
+            <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Bio..."  id="bioI">
 					</div>
 					<div class="w-full flex flex-col items-center">
 						<div>
@@ -101,16 +105,30 @@
 			document.getElementById("tName").innerText = "light";
 			document.getElementById("tName").className = "text-xs text-slate-100 text-white"
 		}
-
+      
+      document.getElementById("name").innerText= document.getElementById("nameI").placeholder;
+      document.getElementById("place").innerText= document.getElementById("placeI").placeholder;
+      document.getElementById("bio").innerText= document.getElementById("bioI").placeholder;
+      
 		function editDetails(){
 
 			let NameId = document.getElementById("name");
+      let PlaceId = document.getElementById("place");
 			let bioId = document.getElementById("bio");
-			let PlaceId = document.getElementById("place");
+			
 
-			NameId.contentEditable = true;
-			bioId.contentEditable = true;
-			PlaceId.contentEditable = true;
+      let NameIn = document.getElementById("nameI");
+      let PlaceIn = document.getElementById("placeI");
+      let BioIn = document.getElementById("bioI");
+
+      NameId.classList.add("hidden");
+      NameIn.classList.remove("hidden");
+
+      PlaceId.classList.add("hidden");
+      PlaceIn.classList.remove("hidden");
+      
+			bioId.classList.add("hidden");
+      BioIn.classList.remove("hidden");
 
 			document.getElementById("nameContainer").classList.add("ring-1", "ring-teal-400", "bg-white/5");
 			document.getElementById("placeContainer").classList.add("ring-1", "ring-teal-400", "bg-white/5");
@@ -124,21 +142,31 @@
 		function submitProfile(){
 
 			let nameId = document.getElementById("name");
-			let bioId = document.getElementById("bio");
 			let placeId = document.getElementById("place");
+      let bioId = document.getElementById("bio");
 
-			let Name = nameId.textContent;
-			let Bio = bioId.textContent;
-			let Place = placeId.textContent;
+      let NameIn = document.getElementById("nameI");
+      let PlaceIn = document.getElementById("placeI");
+      let BioIn = document.getElementById("bioI");
 			
-			if(Name.trim() === "" || Bio.trim() === "" || Place.trim()===""){
+      nameId.innerText = NameIn.value;
+      placeId.innerText = PlaceIn.value;
+      bioId.innerText = BioIn.value;
+
+			if(nameId.innerText.trim() === "" || bioId.innerText.trim() === "" || placeId.innerText.trim() === ""){
 			alert("please enter all the fields");
 			return;
 			}
 
-			nameId.contentEditable = false;
-			bioId.contentEditable = false;
-			placeId.contentEditable = false;
+      NameIn.classList.add("hidden");
+      nameId.classList.remove("hidden");
+
+      PlaceIn.classList.add("hidden");
+      placeId.classList.remove("hidden");
+     
+      BioIn.classList.add("hidden");
+      bioId.classList.remove("hidden");
+			
 
 			document.getElementById("nameContainer").classList.remove("ring-1", "ring-teal-400", "bg-white/5");
 			document.getElementById("placeContainer").classList.remove("ring-1", "ring-teal-400", "bg-white/5");
@@ -150,14 +178,14 @@
 
 
 		function visibleBtn(){
-			let dis = document.getElementById("place");
+			let dis = document.getElementById("placeContainer");
 			
-				if(dis.classList.contains("visible")){
-					dis.classList.remove("visible");
-					dis.classList.add("invisible");
+				if(dis.classList.contains("block")){
+					dis.classList.remove("block");
+					dis.classList.add("hidden");
 				}else{
-					dis.classList.remove("invisible");
-					dis.classList.add("visible");
+					dis.classList.remove("hidden");
+					dis.classList.add("block");
 				}
 		}
 	</script>
