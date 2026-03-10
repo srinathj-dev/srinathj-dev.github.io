@@ -126,10 +126,6 @@
       let placeIn = document.getElementById("placeI");
       let bioIn = document.getElementById("bioI");
 
-      nameIn.setAttribute("readonly", "true");
-      placeIn.setAttribute("readonly", "true");
-      bioIn.setAttribute("readonly", "true");
-
       if (
         nameIn.value.trim() === "" ||
         bioIn.value.trim() === "" ||
@@ -138,6 +134,12 @@
         alert("please enter all the fields");
         return;
       }
+
+      nameIn.setAttribute("readonly", "true");
+      placeIn.setAttribute("readonly", "true");
+      bioIn.setAttribute("readonly", "true");
+
+      
 
       
 
