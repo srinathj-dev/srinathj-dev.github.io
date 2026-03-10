@@ -1,193 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="flex justify-center w-dvh lg:p-6 align-items">
-	<div  id="mainContainer"class="flex justify-center bg-gradient-to-br from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl">
-		<div class=" flex  container bg-white/10 backdrop-blur-md border-white/20  opacity-80 justify-center h-[620px] rounded-3xl  border">
-			<div class="w-10/12 h-11/12 flex flex-col items-center p-2 lg:p-4 gap-4">
-				<div class="w-full flex justify-end">
-					<div>
-						<p id="tName" class="text-xs text-slate-100">Light</p>
-						<div>
-							<label class="relative inline-block w-[35px] h-[18px] ">
-			
-							<input type="checkbox" class="peer sr-only " onclick="if(this.checked){tTheme()} else{nTheme()} ">
+  <div id="mainContainer"
+    class="flex justify-center bg-gradient-to-br from-sky-900 via-sky-700 to-fuchsia-700 w-full sm:w-6/12 md:w-3/6 lg:w-4/12 p-3 lg:p-6 rounded-3xl">
+    <div
+      class="flex container bg-white/10 backdrop-blur-md border-white/20 opacity-80 justify-center h-[620px] rounded-3xl border">
+      <div class="w-10/12 h-11/12 flex flex-col items-center p-2 lg:p-4 gap-4">
+        <div class="w-full flex justify-end">
+          <div>
+            <p id="tName" class="text-xs text-slate-100">Light</p>
+            <div>
+              <label class="relative inline-block w-[35px] h-[18px]">
+                <input type="checkbox" class="peer sr-only" onclick="if (this.checked) {tTheme();} else {nTheme();}" />
+                <span class="absolute inset-0 bg-gray-300 rounded-full cursor-pointer transition duration-300 peer-checked:bg-sky-700 peer-focus:ring-1 peer-focus:ring-blue-500"></span>
+                <span class="absolute left-1 bottom-1 w-[10px] h-[10px] bg-white rounded-full transition duration-300 peer-checked:translate-x-[18px]"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="w-46 relative rounded-full">
+          <input type="file" id="img-btn" accept="image/*" class="hidden" onchange="addImage()" />
+          <label for="img-btn"
+            class="w-6 h-6 bottom-2 right-2 rounded-full border absolute cursor-pointer flex justify-center items-center bg-white-700 backdrop-blur-sm border-white-200 text-black-900"><i
+              class="fa-solid fa-camera"></i></label>
+          <div
+            class="w-44 h-44 bg-white/10 backdrop-blur-md border-white/20 z-10 rounded-full relative flex justify-center items-center absolute">
+            <img id="image" src="" alt="" class="w-40 h-40 object-cover rounded-full absolute" />
+          </div>
+        </div>
+        <div class="w-full h-64 flex flex-col justify-start">
+          <button id="vis"
+            class="flex justify-center items-center text-center bg-white/10 backdrop-blur-md border-white/20 w-6 py-1 rounded-md mb-2"
+            onclick="visibleBtn()">
+            <i class="rounded-md fa-solid fa-eye"></i>
+          </button>
+          <div class="w-full border-b pb-2 flex flex-col text-center gap-4">
+            <div id="nameContainer" class="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 hover:border-teal-400 transition">
+              <i class="fa-solid fa-user text-slate-400"></i>
+              <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100" placeholder="Full Name" value=""  id="nameI" readonly/>
+            </div>
+            <div id="placeContainer" class="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 shadow-lg hover:border-teal-400 transition block">
+              <i class="fas fa-map-marker-alt text-slate-400"></i>
+              <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100" placeholder="Place" value="" id="placeI" readonly/>
+            </div>
+          </div>
+          <div id="bioContainer" class="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 shadow-lg hover:border-teal-400 transition block">
+            <i class="fas fa-file-alt text-slate-400"></i>
+            <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100" placeholder="Bio..." value="" id="bioI" readonly/>
+          </div>
+          <div class="w-full flex flex-col items-center">
+            <div>
+              <p class="text-slate-100 text-xs py-2 antialiased">
+                Passionate coder & tech enthusiest
+              </p>
+            </div>
+            <div class="w-24 py-2 flex flex-row justify-center gap-2">
+              <button id="editButton" class="border bg-gradient-to-tr from-blue-900 via-blue-700 to-fuchsia-700 text-slate-100 px-4 py-1 rounded-md antialiased"onclick="editDetails()">Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function addImage() {
+      let imgFiles = document.getElementById("img-btn");
+      const Preview = document.getElementById("image");
+      const file = imgFiles.files[0]; // get selected file
+      if (file) {
+        Preview.src = URL.createObjectURL(file);
+      }
+    }
 
-							<span class="absolute inset-0 bg-gray-300 rounded-full cursor-pointer
-							transition duration-300
-							peer-checked:bg-sky-700
-							peer-focus:ring-1 peer-focus:ring-blue-500"></span>
+    function tTheme() {
+      let theme = document.getElementById("mainContainer");
+      theme.className =
+        "flex justify-center bg-gradient-to-tr from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl";
+      document.getElementById("tName").innerText = "dark";
+      document.getElementById("tName").className ="text-xs text-slate-100 text-black";
+    }
 
-							<span class="absolute left-1 bottom-1 w-[10px] h-[10px] bg-white rounded-full
-							transition duration-300
-							peer-checked:translate-x-[18px]"></span>
+    function nTheme() {
+      let theme = document.getElementById("mainContainer");
+      theme.className =
+        "flex justify-center bg-gradient-to-br from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl";
+      document.getElementById("tName").innerText = "light";
+      document.getElementById("tName").className ="text-xs text-slate-100 text-white";
+    }
 
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="w-46 relative rounded-full">
-					<input type="file"  id="img-btn" accept="image/*" class="hidden" onchange="addImage()">
-					<label for="img-btn"  class="w-6 h-6 bottom-2 right-2 rounded-full  border  absolute cursor-pointer flex justify-center items-center bg-white-700 backdrop-blur-sm border-white-200 text-black-900"><i class="fa-solid fa-camera"></i></label>
-					<div class="w-44 h-44  bg-white/10 backdrop-blur-md  border-white/20 z-10 rounded-full relative flex justify-center items-center absolute">
-						<img id="image" src="" alt="" class="w-40 h-40 object-cover rounded-full  absolute">
-					</div>
-				</div>
-				<div class = "w-full h-64 flex flex-col justify-start  ">
-					<button id="vis" class=" flex justify-center items-center text-center bg-white/10 backdrop-blur-md  border-white/20 w-6 py-1 rounded-md mb-2" onclick="visibleBtn()"><i class=" rounded-md fa-solid fa-eye"></i></button>
-					<div class=" w-full border-b pb-2 flex flex-col text-center gap-4 ">
-						<div id ="nameContainer" class ="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600  hover:border-teal-400 transition">
-							<i class="fa-solid fa-user text-slate-400"></i>
-              
-							  <h2 class="w-full text-md text-slate-100 px-2 outline-none antialiased font-sans"  id="name"></h2>
-							  <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Full Name"  id="nameI">
-              
-						</div>
-						<div id ="placeContainer" class ="flex items-center rounded-md px-3 py-2 bg-white/10 backdrop-blur-md border-white/20 border border-slate-600 shadow-lg hover:border-teal-400 transition block">
-							<i class="fas fa-map-marker-alt text-slate-400"></i>
-							<h2 class="w-full text-slate-100 px-2 font-sans outline-none  antialiased" id="place"></h2>
-              <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Place"  id="placeI">
-						</div>
-					</div >
-					<div id="bioContainer" class=" w-full my-2 text-center px-3 py-2 flex justify-center items-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-md antialiased hover:border-teal-400 transition">
-						<i class="fas fa-file-alt text-slate-400"></i>	
-            <p class="w-full text-sm text-slate-100 px-2 leading-relaxed break-words line-clamp-3 outline-none antialiased"  id="bio"></p>
-            <input class="w-full text-md text-slate-100 bg-transparent px-2 outline-none antialiased font-sans placeholder-slate-100 hidden text-center" placeholder="Bio..."  id="bioI">
-					</div>
-					<div class="w-full flex flex-col items-center">
-						<div>
-							<p class="text-slate-100 text-xs py-2 antialiased">Passionate coder & tech enthusiest</p>
-						</div>
-						<div class="w-24 py-2 flex flex-row justify-center gap-2">
-							<button id="editButton" class=" border bg-gradient-to-tr from-blue-900 via-blue-700 to-fuchsia-700  text-slate-100  px-4 py-1 rounded-md antialiased" onclick="editDetails()">Edit</button>
-							
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-	</div>
-	<script> 
-
-
-		function addImage(){
-			let imgFiles = document.getElementById("img-btn");
-			const Preview = document.getElementById("image");
-			// document.getElementById("image").src="files[0]";
-			    const file = imgFiles.files[0];   // get selected file
-			if (file) {
-				Preview.src = URL.createObjectURL(file);
-			}
-
-		}
-
-		function tTheme(){
-			let theme = document.getElementById("mainContainer")
-			theme.className= "flex justify-center bg-gradient-to-tr from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl";
-			document.getElementById("tName").innerText = "dark";
-			document.getElementById("tName").className = "text-xs text-slate-100 text-black"
-
-		}
-
-		function nTheme(){
-			let theme = document.getElementById("mainContainer")
-			theme.className= "flex justify-center bg-gradient-to-br from-sky-900 via-sky-700 to-fuchsia-700  w-full sm:w-6/12 md:w-3/6  lg:w-4/12 p-3  lg:p-6 rounded-3xl";
-			document.getElementById("tName").innerText = "light";
-			document.getElementById("tName").className = "text-xs text-slate-100 text-white"
-		}
+    function editDetails() {
+      let nameIn = document.getElementById("nameI");
+      let placeIn = document.getElementById("placeI");
+      let bioIn = document.getElementById("bioI");
       
-      document.getElementById("name").innerText= document.getElementById("nameI").placeholder;
-      document.getElementById("place").innerText= document.getElementById("placeI").placeholder;
-      document.getElementById("bio").innerText= document.getElementById("bioI").placeholder;
+      nameIn.removeAttribute("readonly");
+      placeIn.removeAttribute("readonly");
+      bioIn.removeAttribute("readonly");
+
+      document
+        .getElementById("nameContainer")
+        .classList.add("ring-1", "ring-teal-400", "bg-white/5");
+      document
+        .getElementById("placeContainer")
+        .classList.add("ring-1", "ring-teal-400", "bg-white/5");
+      document
+        .getElementById("bioContainer")
+        .classList.add("ring-1", "ring-teal-400", "bg-white/5");
+
+      document.getElementById("editButton").textContent = "Save";
+      document.getElementById("editButton").onclick = submitProfile;
+    }
+
+    function submitProfile() {
+      let nameIn = document.getElementById("nameI");
+      let placeIn = document.getElementById("placeI");
+      let bioIn = document.getElementById("bioI");
+
+      nameIn.setAttribute("readonly", "true");
+      placeIn.setAttribute("readonly", "true");
+      bioIn.setAttribute("readonly", "true");
+
+      if (
+        nameIn.value.trim() === "" ||
+        bioIn.value.trim() === "" ||
+        placeIn.value.trim() === ""
+      ) {
+        alert("please enter all the fields");
+        return;
+      }
+
       
-		function editDetails(){
 
-			let NameId = document.getElementById("name");
-      let PlaceId = document.getElementById("place");
-			let bioId = document.getElementById("bio");
-			
+      document
+        .getElementById("nameContainer")
+        .classList.remove("ring-1", "ring-teal-400", "bg-white/5");
+      document
+        .getElementById("placeContainer")
+        .classList.remove("ring-1", "ring-teal-400", "bg-white/5");
+      document
+        .getElementById("bioContainer")
+        .classList.remove("ring-1", "ring-teal-400", "bg-white/5");
 
-      let NameIn = document.getElementById("nameI");
-      let PlaceIn = document.getElementById("placeI");
-      let BioIn = document.getElementById("bioI");
+      document.getElementById("editButton").textContent = "Edit";
+      document.getElementById("editButton").onclick = editDetails;
+    }
 
-      NameId.classList.add("hidden");
-      NameIn.classList.remove("hidden");
+    function visibleBtn() {
+      let dis = document.getElementById("placeContainer");
 
-      PlaceId.classList.add("hidden");
-      PlaceIn.classList.remove("hidden");
-      
-			bioId.classList.add("hidden");
-      BioIn.classList.remove("hidden");
-
-			document.getElementById("nameContainer").classList.add("ring-1", "ring-teal-400", "bg-white/5");
-			document.getElementById("placeContainer").classList.add("ring-1", "ring-teal-400", "bg-white/5");
-			document.getElementById("bioContainer").classList.add("ring-1", "ring-teal-400", "bg-white/5");
-
-			document.getElementById("editButton").textContent = "Save";
-			document.getElementById("editButton").onclick = submitProfile;
-
-		}
-
-		function submitProfile(){
-
-			let nameId = document.getElementById("name");
-			let placeId = document.getElementById("place");
-      let bioId = document.getElementById("bio");
-
-      let NameIn = document.getElementById("nameI");
-      let PlaceIn = document.getElementById("placeI");
-      let BioIn = document.getElementById("bioI");
-			
-      nameId.innerText = NameIn.value;
-      placeId.innerText = PlaceIn.value;
-      bioId.innerText = BioIn.value;
-
-			if(nameId.innerText.trim() === "" || bioId.innerText.trim() === "" || placeId.innerText.trim() === ""){
-			alert("please enter all the fields");
-			return;
-			}
-
-      NameIn.classList.add("hidden");
-      nameId.classList.remove("hidden");
-
-      PlaceIn.classList.add("hidden");
-      placeId.classList.remove("hidden");
-     
-      BioIn.classList.add("hidden");
-      bioId.classList.remove("hidden");
-			
-
-			document.getElementById("nameContainer").classList.remove("ring-1", "ring-teal-400", "bg-white/5");
-			document.getElementById("placeContainer").classList.remove("ring-1", "ring-teal-400", "bg-white/5");
-			document.getElementById("bioContainer").classList.remove("ring-1", "ring-teal-400", "bg-white/5");
-
-			document.getElementById("editButton").textContent = "Edit";
-			document.getElementById("editButton").onclick = editDetails;
-		}
-
-
-		function visibleBtn(){
-			let dis = document.getElementById("placeContainer");
-			
-				if(dis.classList.contains("block")){
-					dis.classList.remove("block");
-					dis.classList.add("hidden");
-				}else{
-					dis.classList.remove("hidden");
-					dis.classList.add("block");
-				}
-		}
-	</script>
+      if (dis.classList.contains("block")) {
+        dis.classList.remove("block");
+        dis.classList.add("hidden");
+      } else {
+        dis.classList.remove("hidden");
+        dis.classList.add("block");
+      }
+    }
+  </script>
 </body>
+
 </html>
