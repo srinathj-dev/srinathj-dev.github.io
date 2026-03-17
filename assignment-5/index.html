@@ -86,10 +86,8 @@
       deleteBtn = document.createElement("button");
       deleteBtn.setAttribute("class", "delete");
       deleteBtn.setAttribute("id", "DEL-"+idNo);
-      deleteBtn.setAttribute("onclick", "deleteTask(this.id)");
+      deleteBtn.setAttribute("onclick", "deleteTask(this.parentElement.id)");
       deleteBtn.innerHTML = `<i class="fa fa-trash" ></i>`;
-
-      
 
       task.prepend(deleteBtn);
       task.prepend(completeBtn);
@@ -144,11 +142,23 @@
       }
     }
 
+
     function deleteTask(ide) {
       const activeChild = document.getElementById(ide);
-      activeChild.parentNode.remove();
-      console.log(`success ${activeChild.parentNode.id}  has been deleted`);
+      activeChild.remove();
+      console.log(`success ${activeChild.id}  has been deleted`);
+      let index = activeChild.getAttribute("tid");
+      let delTasks = tasks.find(function(t){
+        return t.tId == activeChild.getAttribute("tid");
+      })
+      let delIndex = tasks.findIndex(selectTask)
+      function selectTask(t) {
+        return t == delTasks;
+      }
+      tasks.splice(delIndex,1)
+      console.log(tasks);
     }
+
 
     function allToDo() {
       document.getElementById("allBtn").classList.add("clickOnFilter");
@@ -159,6 +169,7 @@
         activeTask.style.display = "flex";
       }
     }
+
 
     function activeToDo() {
       document.getElementById("activeBtn").classList.add("clickOnFilter");
