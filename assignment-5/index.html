@@ -145,17 +145,22 @@
 
     function deleteTask(ide) {
       const activeChild = document.getElementById(ide);
+
       activeChild.remove();
       console.log(`success ${activeChild.id}  has been deleted`);
+
       let index = activeChild.getAttribute("tid");
+
       let delTasks = tasks.find(function(t){
         return t.tId == activeChild.getAttribute("tid");
       })
+
       let delIndex = tasks.findIndex(selectTask)
       function selectTask(t) {
         return t == delTasks;
       }
-      tasks.splice(delIndex,1)
+      tasks.splice(delIndex,1);
+      
       console.log(tasks);
     }
 
