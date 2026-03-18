@@ -53,19 +53,14 @@
       idNo =idNo+1;
       taskId.push("TASK-"+idNo);
       let obJ = { tId: idNo, Name: textInput.value, status: "active" }
-
       tasks.push(obJ);
 
       task = document.createElement("div");
       task.setAttribute("class", "box");
       task.setAttribute("id", "TASK-" + idNo);
-
-      for (let i = 0; i < tasks.length; i++) {
-      task.setAttribute("status", tasks[i].status);
-      task.setAttribute("tId", tasks[i].tId);
-      }
-
-
+      task.setAttribute("status", obJ.status);
+      task.setAttribute("tId", obJ.tId);
+      
       let completeCheck = document.createElement("input");
       completeCheck.setAttribute("type", "checkbox");
       completeCheck.setAttribute("class", "check");
@@ -79,7 +74,6 @@
       completeBtn = document.createElement("button");
       completeBtn.setAttribute("class", "complete");
       completeBtn.setAttribute("id", "COM-"+idNo);
-      completeBtn.setAttribute("onclick", "completeTask(this.id)");
       completeBtn.setAttribute("onclick","completeTask(this.parentElement.id)");
       completeBtn.innerHTML = `<i class="fa-solid fa-check"></i>`;
 
