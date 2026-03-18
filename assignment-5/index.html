@@ -101,7 +101,6 @@
     
     }
 
-
     function completeTask(ide) {
       
       const parent = document.getElementById(ide);
@@ -142,7 +141,6 @@
       }
     }
 
-
     function deleteTask(ide) {
       const activeChild = document.getElementById(ide);
 
@@ -155,15 +153,21 @@
         return t.tId == activeChild.getAttribute("tid");
       })
 
-      let delIndex = tasks.findIndex(selectTask)
+      let delTasksIndex = tasks.findIndex(selectTask)
       function selectTask(t) {
         return t == delTasks;
       }
-      tasks.splice(delIndex,1);
-      
+      tasks.splice(delTasksIndex,1);
+      console.log(tasks);
+
+       let delTaskId = taskId.findIndex(ids)
+      function ids(t) {
+        return t == ide;
+      }
+      taskId.splice(delTaskId,1)
+      console.log(taskId);
       console.log(tasks);
     }
-
 
     function allToDo() {
       document.getElementById("allBtn").classList.add("clickOnFilter");
@@ -175,19 +179,23 @@
       }
     }
 
-
     function activeToDo() {
       document.getElementById("activeBtn").classList.add("clickOnFilter");
       document.getElementById("allBtn").classList.remove("clickOnFilter");
       document.getElementById("completeBtn").classList.remove("clickOnFilter");
 
       for (let i = 0; i <= taskId.length - 1; i++) {
-        let activeTask = document.getElementById(taskId[i]);
-        let inputTask = activeTask.querySelector("input");
-        activeTask.style.display = "flex";
+        let completedTask = document.getElementById(taskId[i]);
+        let cId = completedTask.getAttribute("tid");
+        let tas = tasks.findIndex(selectTask);
+        function selectTask(t){
+          return t.tId == cId;
+        }
 
-        if (inputTask.checked) {
-          activeTask.style.display = "none";
+        if ( tasks[tas].status == "completed" ) {
+          completedTask.style.display = "none";
+        }else {
+          completedTask.style.display = "flex";
         }
 
       }
@@ -201,15 +209,16 @@
 
       for (let i = 0; i <= taskId.length - 1; i++) {
         let completedTask = document.getElementById(taskId[i]);
-        let completeBtn = completedTask.querySelectorAll("button");
+        let cId = completedTask.getAttribute("tid");
+        let tas = tasks.findIndex(selectTask);
+        function selectTask(t){
+          return t.tId == cId;
+        }
 
-        let inputTask = completedTask.querySelector("input");
-        completedTask.style.display = "flex";
-        if (
-          inputTask.checked == false ||
-          completeBtn[0].innerHTML == `<i class="fa-solid fa-check"></i>`
-        ) {
+        if ( tasks[tas].status == "active" ) {
           completedTask.style.display = "none";
+        }else{
+          completedTask.style.display = "flex";
         }
       }
     }
