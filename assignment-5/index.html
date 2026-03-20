@@ -34,9 +34,7 @@
 
   <script>
     let idNo = 0;
-    let task;
-    let completeBtn;
-    let deleteBtn;
+    
     const taskId = [];
     const tasks = [];
 
@@ -45,9 +43,9 @@
 
   
     function addToDo(){
-
-      let taskBox = document.getElementById("taskContainer");
-      let textInput = document.getElementById("inputTask");
+      let task;
+      let completeBtn;
+      let deleteBtn;
 
       if(textInput.value){
       idNo =idNo+1;
@@ -95,73 +93,7 @@
     
     }
 
-    function completeTask(ide) {
-      
-      const parent = document.getElementById(ide);
-      const gParent = parent.parentElement;
-      console.log(gParent.querySelectorAll("div"));
-
-      const taskButton = parent.querySelectorAll("button");
-      let inputChild = parent.querySelector("input");
-      
-      if(parent.getAttribute("status") == "completed")
-      {
-        console.log("complete task method")
-        parent.setAttribute("status","active");
-        taskButton[0].innerHTML = `<i class="fa-solid fa-check"></i>`;
-        inputChild.checked = false;
-        
-        let tas = tasks.find(function(t){
-          console.log("complete task method")
-         return t.tId == parent.getAttribute("tid");
-        })
-        tas.status = "active";
-      }else{
-
-        parent.setAttribute("status","completed");
-        taskButton[0].innerHTML = `<i class="fa-solid fa-rotate-left"></i>`;
-        inputChild.checked = true;
-        
-        let tas = tasks.find(function(t){
-           return t.tId == parent.getAttribute("tid");
-        })
-        
-        tas.status = "completed";
-
-      }
-      console.log(tasks);
-      if (document.getElementById("activeBtn").classList.contains("clickOnFilter")) {
-        parent.style.display = "none";
-      }
-    }
-
-    function deleteTask(ide) {
-      const activeChild = document.getElementById(ide);
-
-      activeChild.remove();
-      console.log(`success ${activeChild.id}  has been deleted`);
-
-      let index = activeChild.getAttribute("tid");
-
-      let delTasks = tasks.find(function(t){
-        return t.tId == activeChild.getAttribute("tid");
-      })
-
-      let delTasksIndex = tasks.findIndex(selectTask)
-      function selectTask(t) {
-        return t == delTasks;
-      }
-      tasks.splice(delTasksIndex,1);
-      console.log(tasks);
-
-       let delTaskId = taskId.findIndex(ids)
-      function ids(t) {
-        return t == ide;
-      }
-      taskId.splice(delTaskId,1)
-      console.log(taskId);
-      console.log(tasks);
-    }
+    
 
     function allToDo() {
       document.getElementById("allBtn").classList.add("clickOnFilter");
@@ -215,6 +147,70 @@
           completedTask.style.display = "flex";
         }
       }
+    }
+  
+    function completeTask(ide) {
+      
+      const parent = document.getElementById(ide);
+      const taskButton = parent.querySelectorAll("button");
+      let inputChild = parent.querySelector("input");
+
+      let tas = tasks.findIndex(findIndex)
+      function findIndex(t){
+        return t.tId == parent.getAttribute("tid");
+      }
+      
+      if(tasks[tas].status == "completed")
+      {
+
+        parent.setAttribute("status","active");
+        taskButton[0].innerHTML = `<i class="fa-solid fa-check"></i>`;
+        inputChild.checked = false;
+        tasks[tas].status = "active";
+        if (document.getElementById("completeBtn").classList.contains("clickOnFilter")) {
+        parent.style.display = "none";
+      }
+      }else{
+
+        parent.setAttribute("status","completed");
+        taskButton[0].innerHTML = `<i class="fa-solid fa-rotate-left"></i>`;
+        inputChild.checked = true;
+        tasks[tas].status = "completed";
+        if (document.getElementById("activeBtn").classList.contains("clickOnFilter")) {
+        parent.style.display = "none";
+        }
+
+      }
+      console.log(tasks);
+      
+    }
+
+    function deleteTask(ide) {
+      const activeChild = document.getElementById(ide);
+
+      activeChild.remove();
+      console.log(`success ${activeChild.id}  has been deleted`);
+
+      let index = activeChild.getAttribute("tid");
+
+      let delTasks = tasks.find(function(t){
+        return t.tId == activeChild.getAttribute("tid");
+      })
+
+      let delTasksIndex = tasks.findIndex(selectTask)
+      function selectTask(t) {
+        return t == delTasks;
+      }
+      tasks.splice(delTasksIndex,1);
+      console.log(tasks);
+
+       let delTaskId = taskId.findIndex(ids)
+      function ids(t) {
+        return t == ide;
+      }
+      taskId.splice(delTaskId,1)
+      console.log(taskId);
+      console.log(tasks);
     }
   </script>
 </body>
