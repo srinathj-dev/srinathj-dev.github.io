@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDoListManager</title>
+  <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="mainHeading">
+      <h1>ToDoListManager</h1>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Add Task..." class="inputTask" id="inputTask">
+        <button class="addButton" onclick="addToDo()"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    <div class="filterContainer">
+      <button class="filterButton" id="allBtn" onclick="allToDo()">
+        All
+      </button>
+      <button class="filterButton" id="activeBtn" onclick="activeToDo()">
+        Active
+      </button>
+      <button class="filterButton" id="completeBtn" onclick="completedToDo()">
+        Completed
+      </button>
+    </div>
+    <div class="taskContainer" id="taskContainer"></div>
+  </div>
+
+  <script>
+    let idNo = 0;
+    
+    const taskId = [];
+    const tasks = [];
+
+    let taskBox = document.getElementById("taskContainer");
+    let textInput = document.getElementById("inputTask");
+
+  
+    function addToDo(){
+      let task;
+      let completeBtn;
+      let deleteBtn;
+
+      if(textInput.value){
+      idNo =idNo+1;
+      taskId.push("TASK-"+idNo);
+      let obJ = { tId: idNo, Name: textInput.value, status: "active" }
+      tasks.push(obJ);
+
+      task = document.createElement("div");
+      task.setAttribute("class", "box");
+      task.setAttribute("id", "TASK-" + idNo);
+      task.setAttribute("status", obJ.status);
+      task.setAttribute("tId", obJ.tId);
+      
+      let completeCheck = document.createElement("input");
+      completeCheck.setAttribute("type", "checkbox");
+      completeCheck.setAttribute("class", "check");
+      completeCheck.setAttribute("onclick", "completeTask(this.parentElement.id)");
+      completeCheck.setAttribute("id", "in-" + idNo);
+
+      let taskName = document.createElement("h2");
+      taskName.setAttribute("class", "taskText");
+      taskName.textContent=textInput.value;
+
+      completeBtn = document.createElement("button");
+      completeBtn.setAttribute("class", "complete");
+      completeBtn.setAttribute("id", "COM-"+idNo);
+      completeBtn.setAttribute("onclick","completeTask(this.parentElement.id)");
+      completeBtn.innerHTML = `<i class="fa-solid fa-check"></i>`;
+
+      deleteBtn = document.createElement("button");
+      deleteBtn.setAttribute("class", "delete");
+      deleteBtn.setAttribute("id", "DEL-"+idNo);
+      deleteBtn.setAttribute("onclick", "deleteTask(this.parentElement.id)");
+      deleteBtn.innerHTML = `<i class="fa fa-trash" ></i>`;
+
+      task.prepend(deleteBtn);
+      task.prepend(completeBtn);
+      task.prepend(taskName);
+      task.prepend(completeCheck);
+      taskBox.append(task);
+      textInput.value = ""
+      }else{
+        alert("enter task Name");
+      }
+    
+    }
+
+    
+
+    function allToDo() {
+      document.getElementById("allBtn").classList.add("clickOnFilter");
+      document.getElementById("activeBtn").classList.remove("clickOnFilter");
+      document.getElementById("completeBtn").classList.remove("clickOnFilter");
+      for (let i = 0; i <= taskId.length - 1; i++) {
+        let activeTask = document.getElementById(taskId[i]);
+        activeTask.style.display = "flex";
+      }
+    }
+
+    function activeToDo() {
+      document.getElementById("activeBtn").classList.add("clickOnFilter");
+      document.getElementById("allBtn").classList.remove("clickOnFilter");
+      document.getElementById("completeBtn").classList.remove("clickOnFilter");
+
+      for (let i = 0; i <= taskId.length - 1; i++) {
+        let completedTask = document.getElementById(taskId[i]);
+        let cId = completedTask.getAttribute("tid");
+        let tas = tasks.findIndex(selectTask);
+        function selectTask(t){
+          return t.tId == cId;
+        }
+
+        if ( tasks[tas].status == "completed" ) {
+          completedTask.style.display = "none";
+        }else {
+          completedTask.style.display = "flex";
+        }
+
+      }
+
+    }
+
+    function completedToDo() {
+      document.getElementById("completeBtn").classList.add("clickOnFilter");
+      document.getElementById("allBtn").classList.remove("clickOnFilter");
+      document.getElementById("activeBtn").classList.remove("clickOnFilter");
+
+      for (let i = 0; i <= taskId.length - 1; i++) {
+        let completedTask = document.getElementById(taskId[i]);
+        let cId = completedTask.getAttribute("tid");
+        let tas = tasks.findIndex(selectTask);
+        function selectTask(t){
+          return t.tId == cId;
+        }
+
+        if ( tasks[tas].status == "active" ) {
+          completedTask.style.display = "none";
+        }else{
+          completedTask.style.display = "flex";
+        }
+      }
+    }
+  
+    function completeTask(ide) {
+      
+      const parent = document.getElementById(ide);
+      const taskButton = parent.querySelectorAll("button");
+      let inputChild = parent.querySelector("input");
+
+      let tas = tasks.findIndex(findIndex)
+      function findIndex(t){
+        return t.tId == parent.getAttribute("tid");
+      }
+      
+      if(tasks[tas].status == "completed")
+      {
+
+        parent.setAttribute("status","active");
+        taskButton[0].innerHTML = `<i class="fa-solid fa-check"></i>`;
+        inputChild.checked = false;
+        tasks[tas].status = "active";
+        if (document.getElementById("completeBtn").classList.contains("clickOnFilter")) {
+        parent.style.display = "none";
+      }
+      }else{
+
+        parent.setAttribute("status","completed");
+        taskButton[0].innerHTML = `<i class="fa-solid fa-rotate-left"></i>`;
+        inputChild.checked = true;
+        tasks[tas].status = "completed";
+        if (document.getElementById("activeBtn").classList.contains("clickOnFilter")) {
+        parent.style.display = "none";
+        }
+
+      }
+      console.log(tasks);
+      
+    }
+
+    function deleteTask(ide) {
+      const activeChild = document.getElementById(ide);
+
+      activeChild.remove();
+      console.log(`success ${activeChild.id}  has been deleted`);
+
+      let index = activeChild.getAttribute("tid");
+
+      let delTasks = tasks.find(function(t){
+        return t.tId == activeChild.getAttribute("tid");
+      })
+
+      let delTasksIndex = tasks.findIndex(selectTask)
+      function selectTask(t) {
+        return t == delTasks;
+      }
+      tasks.splice(delTasksIndex,1);
+      console.log(tasks);
+
+       let delTaskId = taskId.findIndex(ids)
+      function ids(t) {
+        return t == ide;
+      }
+      taskId.splice(delTaskId,1)
+      console.log(taskId);
+      console.log(tasks);
+    }
+  </script>
+</body>
+
+</html>
