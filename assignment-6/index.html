@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDoListManager</title>
+  <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="mainHeading">
+      <h1>Accordian & Dropdown</h1>
+    </div>
+    <div class="taskContainer" id="taskContainer">
+      <div class="accordianContainer">
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">Accordian1</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody">Hello</p>
+              </div>
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
+                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">Accordian2</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody">World!</p>
+              </div>
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
+                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">Accordian3</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody">Welcome</p>
+              </div>
+
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
+                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   const accordianContH =document.querySelectorAll(".accordianHeading");
+  
+    accordianContH.forEach( function (accordianHead) {
+      document.addEventListener("click", event =>{
+        accordianContH.forEach(h => {
+          h.classList.remove("active");
+          accordianHead.nextElementSibling.style.display = "none";
+        });
+      })
+      accordianHead.addEventListener("click", event =>{
+        const isActive = accordianHead.classList.contains("active");
+        accordianContH.forEach(h => {
+          h.classList.remove("active");
+          // h.nextElementSibling.style.maxHeight = 0;
+          accordianHead.nextElementSibling.style.display = "none";
+        });
+        
+        if( isActive == false){
+          accordianHead.classList.add("active");
+          // accordianHead.nextElementSibling.style.maxHeight = accordianHead.nextElementSibling.scrollHeight + 100 + "px" ;
+          accordianHead.nextElementSibling.style.display = "block";
+        }else{
+          accordianHead.classList.remove("active");
+          // accordianHead.nextElementSibling.style.maxHeight = 0;
+          accordianHead.nextElementSibling.style.display = "none";
+        }
+        event.stopPropagation();
+      });
+    });
+
+
+    const accordianContB =document.querySelectorAll(".dropdown"); 
+      accordianContB.forEach( function (accordianBody){
+        accordianBody.addEventListener("click", event =>{
+          let selectIcon = accordianBody.querySelector(".selected");
+          selectIcon.classList.toggle("activeDD");
+          let menuList = accordianBody.querySelector(".menu");
+          menuList.classList.toggle("menuDisplay");
+          event.stopPropagation();
+        });
+      })
+  </script>
+</body>
+
+</html>
