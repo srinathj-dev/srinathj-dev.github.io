@@ -30,9 +30,9 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background-color: linear-gradient(135deg, #6366F1, #8B5CF6);
+background: linear-gradient(135deg, #6366F1, #8B5CF6);
 width: 100%;
-height: 8vmin;
+min-height: 8vmin;
 border-top-left-radius: 12px;
 border-top-right-radius: 12px;
 flex-shrink: 0;
@@ -121,33 +121,27 @@ font-weight: 600;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    
-    
 }
 
 .select{
     border-radius: 25%;
-    /* border: 1px solid #4A6CF7; */
-    color: #4A6CF7;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.5s;
     width: 15px;
     height: 15px;
     font-size: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;  
 }
 
-
-
 .selected{
-    rotate: 90deg;
+    transition: transform 0.4s ease-in-out;
 }
 
 .activeDD{
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
 
 .menu{
@@ -158,10 +152,12 @@ font-weight: 600;
     border: 1px solid #2e28280f;
     display: none;
     color:#fff;
+    transition: display 0.4s ease-in-out;
 }
 
 .menuDisplay{
     display: block;
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -183,16 +179,16 @@ font-weight: 600;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #6366F1;
+        /* background-color: #6366F1; */
         width: 100%;
-        height: 12vmin;
+        min-height: 14vmin;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         flex-shrink: 0;
     }
 
     h1{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: "Cherry Cream Soda", system-ui;
         -webkit-font-smoothing: antialiased;
         color:#fff;
         font-size: 20px;

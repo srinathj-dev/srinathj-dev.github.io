@@ -97,46 +97,53 @@
 
   <script>
    const accordianContH =document.querySelectorAll(".accordianHeading");
-  
-    accordianContH.forEach( function (accordianHead) {
-      document.addEventListener("click", event =>{
+     
+    document.addEventListener("click", event =>{
+
+      let clickedHead = event.target.closest(".accordianHeading");
+        console.log(clickedHead);
+      if(clickedHead){
+        const isActive = clickedHead.classList.contains("active");
+
         accordianContH.forEach(h => {
           h.classList.remove("active");
-          accordianHead.nextElementSibling.style.display = "none";
-        });
-      })
-      accordianHead.addEventListener("click", event =>{
-        const isActive = accordianHead.classList.contains("active");
-        accordianContH.forEach(h => {
-          h.classList.remove("active");
-          // h.nextElementSibling.style.maxHeight = 0;
           h.nextElementSibling.style.display = "none";
         });
-        
+          
         if( isActive == false){
-          accordianHead.classList.add("active");
-          // accordianHead.nextElementSibling.style.maxHeight = accordianHead.nextElementSibling.scrollHeight + 100 + "px" ;
-          accordianHead.nextElementSibling.style.display = "block";
+
+          clickedHead.classList.add("active");
+          clickedHead.nextElementSibling.style.display = "block";
+
         }else{
-          accordianHead.classList.remove("active");
-          // accordianHead.nextElementSibling.style.maxHeight = 0;
-          accordianHead.nextElementSibling.style.display = "none";
+
+          clickedHead.classList.remove("active");
+          clickedHead.nextElementSibling.style.display = "none";
+
         }
         event.stopPropagation();
-      });
-    });
-
-
-    const accordianContB =document.querySelectorAll(".dropdown"); 
-      accordianContB.forEach( function (accordianBody){
-        accordianBody.addEventListener("click", event =>{
-          let selectIcon = accordianBody.querySelector(".selected");
-          selectIcon.classList.toggle("activeDD");
-          let menuList = accordianBody.querySelector(".menu");
-          menuList.classList.toggle("menuDisplay");
-          event.stopPropagation();
+      }else{
+          accordianContH.forEach(h => {
+          h.classList.remove("active");
+          h.nextElementSibling.style.display = "none";
         });
-      })
+        }
+    });
+  
+    const accordianContB =document.querySelectorAll(".dropdown"); 
+    accordianContB.forEach( function (accordianBody){
+      accordianBody.addEventListener("click", event => {
+
+        const selectIcon = accordianBody.querySelector(".selected");
+        const menuList = accordianBody.querySelector(".menu");
+
+        selectIcon.classList.toggle("activeDD");
+        menuList.classList.toggle("menuDisplay");
+
+        event.stopPropagation();
+
+      });
+    })
   </script>
 </body>
 
