@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDoListManager</title>
+  <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="mainHeading">
+      <h1>Accordian & Dropdown</h1>
+    </div>
+    <div class="taskContainer" id="taskContainer">
+      <div class="accordianContainer">
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">What is the First Assignment?</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody" >portfolio Website</p>
+              </div>
+              <div class="dropdown">
+                <div class="select"><p>Default</p>
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "3" class="fontStyle1">Roboto</li>
+                  <li data-id = "2" class="fontStyle2">Soda</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">What is the Second Assignment?</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody">pets Website</p>
+              </div>
+              <div class="dropdown">
+                <div class="select"><p>Default</p>
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "2" class="fontStyle1">Roboto</li>
+                  <li data-id = "3" class="fontStyle2">Soda</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordian">
+          <div class="accordianHeading">
+            <h1 class="accordianH">What is the third Assignment?</h1>
+          </div>
+          <div class="accordianBodyContainer">
+            
+            <div class="editContainer">
+              <div class="textContainer">
+                <p class="accordianBody">profile card controller</p>
+              </div>
+
+              <div class="dropdown">
+                <div class="select"><p>Default</p>
+                  <span class="selected">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "2" class="fontStyle1">Roboto</li>
+                  <li data-id = "3" class="fontStyle2">Soda</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const accordianHeadingContainers = document.querySelectorAll(".accordianHeading");
+
+    const styles =[ {id :"1", name:"Default", fontFamily:"'Courier New', Courier, monospace"},
+                      {id :"2", name:"Soda", fontFamily:"'Cherry Cream Soda', system-ui"},
+                      {id :"3", name:"Roboto", fontFamily:"'Roboto', sans-serif"} ];
+    
+    document.addEventListener("click", function(event){
+
+      const mainContainer = event.target.closest(".accordianBodyContainer")
+      const clickedAccordionHeader = event.target.closest(".accordianHeading");
+      const editContainer = event.target.closest(".editContainer");
+      const dropdowns =event.target.closest(".dropdown");
+      const styleSet = event.target.closest("li[data-id]");
+      console.log(clickedAccordionHeader);
+        if(clickedAccordionHeader){
+          
+          handleAccordians(clickedAccordionHeader);
+            
+          event.stopPropagation();
+
+        }else if(mainContainer){
+          event.stopPropagation();
+        }
+        else{
+          console.log("handling header containers")
+          accordianHeadingContainers.forEach( hideAllAcordions );
+        }
+
+        if(dropdowns){
+          toggleDropdown(dropdowns)
+          event.stopPropagation();
+        }
+
+        if(styleSet){
+          selectingTextStyles(styleSet)
+          event.stopPropagation();
+        } 
+       
+      });
+
+    function handleAccordians(selectedAccordian){
+     
+      const isActive = selectedAccordian.classList.contains("active");
+
+      accordianHeadingContainers.forEach(accordionHeading => {
+      accordionHeading.classList.remove("active");
+      accordionHeading.nextElementSibling.style.display = "none";
+      });
+
+      if(isActive){
+        selectedAccordian.classList.remove("active");
+        selectedAccordian.nextElementSibling.style.display = "none";
+      }else{
+        selectedAccordian.classList.add("active");
+        selectedAccordian.nextElementSibling.style.display = "block";
+      }
+    }
+
+    function hideAllAcordions(h){
+      h.classList.remove("active");
+      h.nextElementSibling.style.display = "none";
+    }
+
+    function toggleDropdown(dropdowns){
+
+      const selectIcon = dropdowns.querySelector(".selected");
+      selectIcon.classList.toggle("activeDD");
+
+      const menuList = dropdowns.querySelector(".menu");
+      menuList.classList.toggle("menuDisplay");
+
+    }
+
+    function selectingTextStyles(styleSet){
+      const selectedId = styleSet.dataset.id;
+      const selectedStyle = styles.find(function(style){
+        return style.id == selectedId    
+        })
+
+      const parent = styleSet.closest(".editContainer");
+      const text = parent.querySelector(".accordianBody");
+      const label = parent.querySelector(".dropdown p");
+
+          parent.querySelectorAll("li").forEach(li => {
+          li.classList.remove("menuSelect");
+          });
+
+          // add active class
+          styleSet.classList.add("menuSelect");
+          text.style.fontFamily = selectedStyle.fontFamily;
+          label.innerHTML = selectedStyle.name;
+    }
+
+  </script>
+</body>
+
+</html>
