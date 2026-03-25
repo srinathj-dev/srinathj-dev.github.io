@@ -109,8 +109,6 @@
                       {id :"2", name:"Soda", fontFamily:"'Cherry Cream Soda', system-ui"},
                       {id :"3", name:"Roboto", fontFamily:"'Roboto', sans-serif"} ];
     
-
-    
     document.addEventListener("click", function(event){
 
       const mainContainer = event.target.closest(".accordianBodyContainer")
@@ -118,7 +116,7 @@
       const editContainer = event.target.closest(".editContainer");
       const dropdowns =event.target.closest(".dropdown");
       const styleSet = event.target.closest("li[data-id]");
-      
+      console.log(clickedAccordionHeader);
         if(clickedAccordionHeader){
           
           handleAccordians(clickedAccordionHeader);
@@ -129,6 +127,7 @@
           event.stopPropagation();
         }
         else{
+          console.log("handling header containers")
           accordianHeadingContainers.forEach( hideAllAcordions );
         }
 
