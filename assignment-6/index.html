@@ -8,8 +8,11 @@
   <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -22,22 +25,22 @@
       <div class="accordianContainer">
         <div class="accordian">
           <div class="accordianHeading">
-            <h1 class="accordianH">Accordian1</h1>
+            <h1 class="accordianH">What is the First Assignment?</h1>
           </div>
           <div class="accordianBodyContainer">
             <div class="editContainer">
               <div class="textContainer">
-                <p class="accordianBody">Hello</p>
+                <p class="accordianBody" >portfolio Website</p>
               </div>
               <div class="dropdown">
-                <div class="select">
+                <div class="select">fontStyle
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
-                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                  <li class="fontStyle1">Roboto</li>
+                  <li class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -45,22 +48,22 @@
         </div>
         <div class="accordian">
           <div class="accordianHeading">
-            <h1 class="accordianH">Accordian2</h1>
+            <h1 class="accordianH">What is the Second Assignment?</h1>
           </div>
           <div class="accordianBodyContainer">
             <div class="editContainer">
               <div class="textContainer">
-                <p class="accordianBody">World!</p>
+                <p class="accordianBody" >pets Website</p>
               </div>
               <div class="dropdown">
-                <div class="select">
+                <div class="select">fontStyle
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
-                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                  <li class="fontStyle1">Roboto</li>
+                  <li class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -68,24 +71,24 @@
         </div>
         <div class="accordian">
           <div class="accordianHeading">
-            <h1 class="accordianH">Accordian3</h1>
+            <h1 class="accordianH">What is the third Assignment?</h1>
           </div>
           <div class="accordianBodyContainer">
             
             <div class="editContainer">
               <div class="textContainer">
-                <p class="accordianBody">Welcome</p>
+                <p class="accordianBody">profile card controller</p>
               </div>
 
               <div class="dropdown">
-                <div class="select">
+                <div class="select">fontStyle
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li><i class="fa-regular fa-pen-to-square"></i>Edit</li>
-                  <li><i class="fa-solid fa-floppy-disk"></i>Save</li>
+                  <li class="fontStyle1">Roboto</li>
+                  <li class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -96,54 +99,86 @@
   </div>
 
   <script>
-   const accordianContH =document.querySelectorAll(".accordianHeading");
+   const accordianHeadingContainers = document.querySelectorAll(".accordianHeading");
+   const dropdowns =document.querySelectorAll(".dropdown");
      
-    document.addEventListener("click", event =>{
+    document.addEventListener("click", function(event){
 
-      let clickedHead = event.target.closest(".accordianHeading");
-        console.log(clickedHead);
-      if(clickedHead){
-        const isActive = clickedHead.classList.contains("active");
+      const clickedAccordionHeader = event.target.closest(".accordianHeading");
+      const editContainer = event.target.closest(".editContainer");
+      const dropdowns =event.target.closest(".dropdown");
+      const style1 = event.target.closest(".fontStyle1");
+      const style2 = event.target.closest(".fontStyle2");
 
-        accordianContH.forEach(h => {
-          h.classList.remove("active");
-          h.nextElementSibling.style.display = "none";
-        });
+      function hideAllAcordions(h){
+      h.classList.remove("active");
+      h.nextElementSibling.style.display = "none";
+      }
+
+      function displaySelectedAcordionBody(){
+        clickedAccordionHeader.classList.add("active");
+        clickedAccordionHeader.nextElementSibling.style.display = "block";
+      }
+
+      function hideSelectedAcordionBody(){
+        clickedAccordionHeader.classList.remove("active");
+        clickedAccordionHeader.nextElementSibling.style.display = "none";
+      }
+
+      if(clickedAccordionHeader){
+        const isActive = clickedAccordionHeader.classList.contains("active");
+
+        accordianHeadingContainers.forEach( hideAllAcordions ) ;
           
         if( isActive == false){
 
-          clickedHead.classList.add("active");
-          clickedHead.nextElementSibling.style.display = "block";
+          displaySelectedAcordionBody();
 
         }else{
 
-          clickedHead.classList.remove("active");
-          clickedHead.nextElementSibling.style.display = "none";
+          hideSelectedAcordionBody();
 
         }
         event.stopPropagation();
+
+      }else if(editContainer){
+
+        event.stopPropagation();
+
       }else{
-          accordianContH.forEach(h => {
-          h.classList.remove("active");
-          h.nextElementSibling.style.display = "none";
-        });
-        }
-    });
-  
-    const accordianContB =document.querySelectorAll(".dropdown"); 
-    accordianContB.forEach( function (accordianBody){
-      accordianBody.addEventListener("click", event => {
+        accordianHeadingContainers.forEach( hideAllAcordions );
+      }
 
-        const selectIcon = accordianBody.querySelector(".selected");
-        const menuList = accordianBody.querySelector(".menu");
-
+      if(dropdowns){
+        const selectIcon = dropdowns.querySelector(".selected");
+        const menuList = dropdowns.querySelector(".menu");
         selectIcon.classList.toggle("activeDD");
         menuList.classList.toggle("menuDisplay");
 
         event.stopPropagation();
+      }
 
-      });
-    })
+      if(style1){
+        
+        const parent = style1.closest(".editContainer");
+
+        parent.querySelector(".fontStyle2").classList.remove("menuSelect");
+        style1.classList.add("menuSelect");
+         let text= parent.querySelector(".accordianBody")
+        text.style.fontFamily ="'Roboto', sans-serif";
+
+
+      } 
+      if(style2){
+        
+        const parent = style2.closest(".editContainer")
+        parent.querySelector(".fontStyle1").classList.remove("menuSelect");
+        style2.classList.add("menuSelect");
+        let text= parent.querySelector(".accordianBody")
+        text.style.fontFamily ="'Cherry Cream Soda', system-ui";
+      }
+    });
+
   </script>
 </body>
 
