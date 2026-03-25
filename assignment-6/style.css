@@ -184,6 +184,7 @@ font-size: clamp(8px, 6vw, 24px);
     cursor: pointer;
     display: flex;
     flex-wrap: nowrap;
+    font-family:"'Courier New', Courier, monospace";
 }
 
 .fontStyle1{
