@@ -195,7 +195,10 @@ font-size: clamp(8px, 6vw, 24px);
     font-size: 12px;
     font-family: "Cherry Cream Soda", system-ui;
 }
-
+.basic{
+    font-size: 12px;
+    font-family:"'Courier New', Courier, monospace";
+}
 .menu li:hover{
     background: #fff;
     color: #2a2d35;

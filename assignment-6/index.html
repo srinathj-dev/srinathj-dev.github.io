@@ -33,14 +33,15 @@
                 <p class="accordianBody" >portfolio Website</p>
               </div>
               <div class="dropdown">
-                <div class="select">fontStyle
+                <div class="select"><p>fontStyle</p>
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li class="fontStyle1">Roboto</li>
-                  <li class="fontStyle2">Soda</li>
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "2" class="fontStyle1">Roboto</li>
+                  <li data-id = "3" class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -53,17 +54,18 @@
           <div class="accordianBodyContainer">
             <div class="editContainer">
               <div class="textContainer">
-                <p class="accordianBody" >pets Website</p>
+                <p class="accordianBody">pets Website</p>
               </div>
               <div class="dropdown">
-                <div class="select">fontStyle
+                <div class="select"><p>fontStyle</p>
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li class="fontStyle1">Roboto</li>
-                  <li class="fontStyle2">Soda</li>
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "2" class="fontStyle1">Roboto</li>
+                  <li data-id = "3" class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -81,14 +83,15 @@
               </div>
 
               <div class="dropdown">
-                <div class="select">fontStyle
+                <div class="select"><p>fontStyle</p>
                   <span class="selected">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
                 </div>
                 <ul class="menu">
-                  <li class="fontStyle1">Roboto</li>
-                  <li class="fontStyle2">Soda</li>
+                  <li data-id = "1" class="basic menuSelect">Default</li>
+                  <li data-id = "2" class="fontStyle1">Roboto</li>
+                  <li data-id = "3" class="fontStyle2">Soda</li>
                 </ul>
               </div>
             </div>
@@ -99,85 +102,100 @@
   </div>
 
   <script>
-   const accordianHeadingContainers = document.querySelectorAll(".accordianHeading");
-   const dropdowns =document.querySelectorAll(".dropdown");
-     
+
+    const accordianHeadingContainers = document.querySelectorAll(".accordianHeading");
+
+    const styles =[ {id :"1", name:"basic", fontFamily:"'Courier New', Courier, monospace"},
+                      {id :"2", name:"Soda", fontFamily:"'Cherry Cream Soda', system-ui"},
+                      {id :"3", name:"Roboto", fontFamily:"'Roboto', sans-serif"} ];
+    
+
+    
     document.addEventListener("click", function(event){
 
+      const mainContainer = event.target.closest(".accordianBodyContainer")
       const clickedAccordionHeader = event.target.closest(".accordianHeading");
       const editContainer = event.target.closest(".editContainer");
       const dropdowns =event.target.closest(".dropdown");
-      const style1 = event.target.closest(".fontStyle1");
-      const style2 = event.target.closest(".fontStyle2");
+      const styleSet = event.target.closest("li[data-id]");
+      
+        if(clickedAccordionHeader){
+          
+          handleAccordians(clickedAccordionHeader);
+            
+          event.stopPropagation();
 
-      function hideAllAcordions(h){
+        }else if(mainContainer){
+          event.stopPropagation();
+        }
+        else{
+          accordianHeadingContainers.forEach( hideAllAcordions );
+        }
+
+        if(dropdowns){
+          toggleDropdown(dropdowns)
+          event.stopPropagation();
+        }
+
+        if(styleSet){
+          selectingTextStyles(styleSet)
+          event.stopPropagation();
+        } 
+       
+      });
+
+    function handleAccordians(selectedAccordian){
+     
+      const isActive = selectedAccordian.classList.contains("active");
+
+      accordianHeadingContainers.forEach(accordionHeading => {
+      accordionHeading.classList.remove("active");
+      accordionHeading.nextElementSibling.style.display = "none";
+      });
+
+      if(isActive){
+        selectedAccordian.classList.remove("active");
+        selectedAccordian.nextElementSibling.style.display = "none";
+      }else{
+        selectedAccordian.classList.add("active");
+        selectedAccordian.nextElementSibling.style.display = "block";
+      }
+    }
+
+    function hideAllAcordions(h){
       h.classList.remove("active");
       h.nextElementSibling.style.display = "none";
-      }
+    }
 
-      function displaySelectedAcordionBody(){
-        clickedAccordionHeader.classList.add("active");
-        clickedAccordionHeader.nextElementSibling.style.display = "block";
-      }
+    function toggleDropdown(dropdowns){
 
-      function hideSelectedAcordionBody(){
-        clickedAccordionHeader.classList.remove("active");
-        clickedAccordionHeader.nextElementSibling.style.display = "none";
-      }
+      const selectIcon = dropdowns.querySelector(".selected");
+      selectIcon.classList.toggle("activeDD");
 
-      if(clickedAccordionHeader){
-        const isActive = clickedAccordionHeader.classList.contains("active");
+      const menuList = dropdowns.querySelector(".menu");
+      menuList.classList.toggle("menuDisplay");
 
-        accordianHeadingContainers.forEach( hideAllAcordions ) ;
-          
-        if( isActive == false){
+    }
 
-          displaySelectedAcordionBody();
+    function selectingTextStyles(styleSet){
+      const selectedId = styleSet.dataset.id;
+      const selectedStyle = styles.find(function(style){
+        return style.id == selectedId    
+        })
 
-        }else{
+      const parent = styleSet.closest(".editContainer");
+      const text = parent.querySelector(".accordianBody");
+      const label = parent.querySelector(".dropdown p");
 
-          hideSelectedAcordionBody();
+          parent.querySelectorAll("li").forEach(li => {
+          li.classList.remove("menuSelect");
+          });
 
-        }
-        event.stopPropagation();
-
-      }else if(editContainer){
-
-        event.stopPropagation();
-
-      }else{
-        accordianHeadingContainers.forEach( hideAllAcordions );
-      }
-
-      if(dropdowns){
-        const selectIcon = dropdowns.querySelector(".selected");
-        const menuList = dropdowns.querySelector(".menu");
-        selectIcon.classList.toggle("activeDD");
-        menuList.classList.toggle("menuDisplay");
-
-        event.stopPropagation();
-      }
-
-      if(style1){
-        
-        const parent = style1.closest(".editContainer");
-
-        parent.querySelector(".fontStyle2").classList.remove("menuSelect");
-        style1.classList.add("menuSelect");
-         let text= parent.querySelector(".accordianBody")
-        text.style.fontFamily ="'Roboto', sans-serif";
-
-
-      } 
-      if(style2){
-        
-        const parent = style2.closest(".editContainer")
-        parent.querySelector(".fontStyle1").classList.remove("menuSelect");
-        style2.classList.add("menuSelect");
-        let text= parent.querySelector(".accordianBody")
-        text.style.fontFamily ="'Cherry Cream Soda', system-ui";
-      }
-    });
+          // add active class
+          styleSet.classList.add("menuSelect");
+          text.style.fontFamily = selectedStyle.fontFamily;
+          label.innerHTML = selectedStyle.name;
+    }
 
   </script>
 </body>
