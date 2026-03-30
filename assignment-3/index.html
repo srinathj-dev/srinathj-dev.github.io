@@ -390,13 +390,13 @@
   // }
 
 
-  function openModal(m){
+  function openModal(selectedId){
     const modal = document.getElementById("modalOverlay")
     modal.classList.remove("hidden");
     // modal.classList.add("flex", "flex-col", "justify-center", "items-center" )
     
     const data = petDetails.find(function(item){
-      return item.id === m;
+      return item.id === selectedId;
     })
 
     modal.querySelector("h2").innerHTML = data.title
