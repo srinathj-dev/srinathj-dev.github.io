@@ -302,13 +302,13 @@
     </div>
   </div>
   </footer>
-<section role="dialog" aria-modal="true" aria-labelledby="modelOverLay" id="modalOverlay" class="fixed inset-0 w-screen h-screen  z-50 bg-slate-100/10 backdrop-blur-md flex flex-col justify-centeritems-center hidden">
+<section role="dialog" aria-modal="true" aria-labelledby="modalOverLay" id="modalOverlay" class="fixed inset-0 w-screen h-screen  z-50 bg-slate-100/10 backdrop-blur-md flex flex-col justify-centeritems-center hidden">
   <div class=" rounded-xl w-10/12 h-5/6 z-50 bg-slate-900/70 p-4 " id ="overlayChild">
     
     <div class="w-full h-full overflow-y-scroll" >
       <div class="bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl ">
         
-        <h2  id="modelOverLay" class="text-black text-xl font-bold"></h2>
+        <h2  id="modalOverLay" class="text-black text-xl font-bold"></h2>
         
       </div>
       <div >
@@ -376,40 +376,40 @@
 
   
   // function logInOverlay(){
-  //   const model = document.getElementById("mOverlay")
-  //   model.classList.remove("hidden");
-  //   model.classList.add("flex", "flex-col", "justify-center", "items-center" )
-  //   model.querySelector("#overlayChild").classList.add("hidden")
+  //   const modal = document.getElementById("mOverlay")
+  //   modal.classList.remove("hidden");
+  //   modal.classList.add("flex", "flex-col", "justify-center", "items-center" )
+  //   modal.querySelector("#overlayChild").classList.add("hidden")
 
   //   const childEle = document.createElement("iframe")
   //     childEle.className=" rounded-xl h-auto object-cover z-50 bg-slate-900/70 p-4 "; 
   //     childEle.src="../assignment-4/index.html"; 
   //     childEle.title="Nested Content Page";
-  //     model.append(childEle);
+  //     modal.append(childEle);
   //   document.querySelector("body").classList.add("overflow-hidden")
   // }
 
 
   function openModal(m){
-    const model = document.getElementById("modalOverlay")
-    model.classList.remove("hidden");
-    // model.classList.add("flex", "flex-col", "justify-center", "items-center" )
+    const modal = document.getElementById("modalOverlay")
+    modal.classList.remove("hidden");
+    // modal.classList.add("flex", "flex-col", "justify-center", "items-center" )
     
     const data = petDetails.find(function(item){
       return item.id === m;
     })
 
-    model.querySelector("h2").innerHTML = data.title
-    model.querySelector("img").src = data.imageUrl
-    model.querySelector("#description").innerHTML = data.description
+    modal.querySelector("h2").innerHTML = data.title
+    modal.querySelector("img").src = data.imageUrl
+    modal.querySelector("#description").innerHTML = data.description
     document.querySelector("body").classList.add("overflow-hidden")
   }
 
   window.addEventListener("keyup",function(e){
     if(e.key  === "Escape"){
-      const model = document.getElementById("modalOverlay")
-      if(!model.classList.contains("hidden") ){
-        closeModalOverlay(model)
+      const modal = document.getElementById("modalOverlay")
+      if(!modal.classList.contains("hidden") ){
+        closeModalOverlay(modal)
       } 
     }
   })
@@ -444,15 +444,15 @@
   }
 });
 
-  const model = document.getElementById("modalOverlay")
-  model.addEventListener("click", function (hide) {
-  const childModel =  hide.target.closest("#overlayChild")
-  if (!childModel) {
-   closeModalOverlay(model)
+  const modal = document.getElementById("modalOverlay")
+  modal.addEventListener("click", function (hide) {
+  const childmodal =  hide.target.closest("#overlayChild")
+  if (!childmodal) {
+   closeModalOverlay(modal)
   }});
 
-  function closeModalOverlay(model){
-     model.classList.add("hidden");
+  function closeModalOverlay(modal){
+     modal.classList.add("hidden");
     document.querySelector("body").classList.remove("overflow-hidden")
   }
 
