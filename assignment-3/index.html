@@ -45,8 +45,8 @@
           <a href="#" class="navComp">Adoptions</a>
         </div>
         <div class="hidden lg:flex items-baseline content-center gap-x-3 " id="signupLogInContainer">
-          <a href="#" class="text-base font-bold text-black subpixel-antialiased hover:text-yellow-400" id="signup">SignUp</a>
-          <a href="#" class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"  id="login">Log-in</a>
+          <a href="#" class="text-base font-bold text-black subpixel-antialiased hover:text-yellow-400" data-modal="signup">SignUp</a>
+          <a href="#" class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"  data-modal="login">Log-in</a>
         </div>
         <div class="relative lg:hidden ">
           <input type="checkbox" id="menu-toggle" class="peer hidden" >
@@ -350,7 +350,8 @@
                     }]
 
 
-  const container = document.getElementById("petsContainer");   
+  const container = document.getElementById("petsContainer"); 
+  
                     container.addEventListener("click", function(e){
                     const card =  e.target.closest(".catgry");
 
@@ -397,6 +398,7 @@
     model.querySelector("h2").innerHTML = data.tittle
     model.querySelector("img").src = data.links
     model.querySelector("#description").innerHTML = data.description
+    // contentContainer.focus();
     document.querySelector("body").classList.add("overflow-hidden")
   }
 
@@ -406,6 +408,15 @@
       if(!model.classList.contains("hidden") ){
         closeModalOvarlay(model)
       } 
+    }
+  })
+
+  window.addEventListener("keydown",function(e){
+    const model = document.getElementById("mOverlay")
+    if(e.key  === "Tab" &&  !model.classList.contains("hidden") ){
+      const contentContainer = document.getElementById("overlayChild");  
+      contentContainer.focus();
+      e.preventDefault(); 
     }
   })
 
