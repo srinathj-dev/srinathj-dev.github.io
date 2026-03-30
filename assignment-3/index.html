@@ -364,36 +364,10 @@
                     openModal(id);
                     });
 
-  // const sLContainer = document.getElementById("signupLogInContainer");
-  // sLContainer.addEventListener("click", function(e){
-  // const signUpCard = e.target.closest("#signup");
-  // const logInCard = e.target.closest("#login");
-
-  // if(!signUpCard && !logInCard) return;
-  //   logInOverlay()
-
-  // })
-
-  
-  // function logInOverlay(){
-  //   const modal = document.getElementById("mOverlay")
-  //   modal.classList.remove("hidden");
-  //   modal.classList.add("flex", "flex-col", "justify-center", "items-center" )
-  //   modal.querySelector("#overlayChild").classList.add("hidden")
-
-  //   const childEle = document.createElement("iframe")
-  //     childEle.className=" rounded-xl h-auto object-cover z-50 bg-slate-900/70 p-4 "; 
-  //     childEle.src="../assignment-4/index.html"; 
-  //     childEle.title="Nested Content Page";
-  //     modal.append(childEle);
-  //   document.querySelector("body").classList.add("overflow-hidden")
-  // }
-
 
   function openModal(selectedId){
     const modal = document.getElementById("modalOverlay")
     modal.classList.remove("hidden");
-    // modal.classList.add("flex", "flex-col", "justify-center", "items-center" )
     
     const data = petDetails.find(function(item){
       return item.id === selectedId;
