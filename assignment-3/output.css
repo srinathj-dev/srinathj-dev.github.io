@@ -608,14 +608,14 @@ video {
   background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
 }
 
-.catgry{
+.category{
   display: flex;
   height: 11rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   border-radius: 0.5rem;
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   padding-bottom: 0.5rem;
 }
 
@@ -633,9 +633,9 @@ video {
   }
 }
 
-.catgry:hover{
-  animation: wiggle 1s linear infinite;
-}
+/* .catgry:hover{
+  animation: wiggle 0.3s linear;
+} */
 
 .fixed{
   position: fixed;
