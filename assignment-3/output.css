@@ -615,7 +615,7 @@ video {
   align-items: center;
   justify-content: space-around;
   border-radius: 0.5rem;
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   padding-bottom: 0.5rem;
 }
 
@@ -633,9 +633,9 @@ video {
   }
 }
 
-.catgry:hover{
-  animation: wiggle 1s linear infinite;
-}
+/* .catgry:hover{
+  animation: wiggle 0.3s linear;
+} */
 
 .fixed{
   position: fixed;

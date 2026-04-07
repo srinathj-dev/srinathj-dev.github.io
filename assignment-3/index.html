@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./output.css" >
 </head>
 
-<body class=" w-dvw box-border">
+<body class=" w-dvw box-border  ">
   <!-- navbar -->
   <nav class="w-full fixed z-30" aria-label="Authentication">
     <div class=" w-full px-4 lg:px-12 flex flex-col ">
@@ -86,9 +86,9 @@
     </div>
   </nav>
   <!-- main -->
-  <main class="w-full px-4 lg:px-12 flex flex-col pt-24 gap-x-8 gap-y-8 bg-amber-50/40 ">
+  <main class="w-full px-4 lg:px-12 flex flex-col pt-24 gap-x-8 gap-y-8 ">
     <!-- adoptions -->
-    <section class="min-h" aria-labelledby="adoptHeading" id="adoptions">
+    <section class="min-h" aria-labelledby="adoptHeading">
       <div class="flex w-full flex-col gap-2 rounded-lg bg-slate-50">
         <div class="flex flex-col sm:flex-row   sm:gap-y-2">
           <div
@@ -101,7 +101,8 @@
               — Sometimes even more thankful.
             </p>
             <div class="flex w-full content-center justify-start">
-              <button class="w-min rounded-md   bg-amber-500 px-10 py-2 text-xl text-slate-50 shadow-lg sm:block">Adopt.</button>
+              <button
+                class="w-min rounded-md   bg-amber-500 px-10 py-2 text-xl text-slate-50 shadow-lg sm:block">Adopt.</button>
             </div>
           </div>
           <div class="m-2  h-56 sm:h-64 md:h-72 sm:w-1/2">
@@ -111,7 +112,8 @@
               <p class="flex text-wrap text-xl leading-snug font-bold text-black antialiased">
                 Adoption is the purest form of love.</p>
               <div class="w-full content-center justify-start">
-                <button class="w-min rounded-md   bg-amber-500 px-10 py-2 text-xl text-slate-50 shadow-lg sm:block">Donate.</button>
+                <button
+                  class="w-min rounded-md   bg-amber-500 px-10 py-2 text-xl text-slate-50 shadow-lg sm:block">Donate.</button>
               </div>
             </div>
           </div>
@@ -182,8 +184,10 @@
         </div>
 
         <a href="#"
-          class="bg-cyan-100 border-2 h-48  py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
-          <i class="fa-solid fa-bone h-3/5 text-7xl"></i>
+          class="bg-cyan-100 border-2 h-48  py-2 rounded-lg  flex flex-col justify-around items-center hover:animate-wiggle">
+          <img class="h-3/5 min-w-fit place-content-center"
+            src="./assets/training.png"
+            alt="pet">
           <div>
             <h3 class="text-xl md:text-xl font-bold text-gray-900">Training</h3>
           </div>
@@ -223,7 +227,7 @@
       </div>
     </section>
     <!-- Best selling -->
-    <section class="w-full" aria-labelledby="bestSelling" id="bestSelling">
+    <section class="w-full" aria-labelledby="bestSelling">
       <div class="p-2 flex flex-col">
         <div class="flex flex-row p-2 rounded-lg items-center justify-between bg-slate-300 border-2">
           <h2 id="bestSelling" class="text-2xl sm:text-4xl text-black font-serif font-semibold antialiased">Best Selling</h2>
@@ -308,62 +312,50 @@
   <div class=" rounded-xl w-10/12 h-5/6 z-50 bg-slate-900/70 p-4 " id ="overlayChild">
     
     <div class="w-full h-full overflow-y-scroll" >
-      <div class="bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl flex justify-between ">
+      <div class="bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl ">
+        
         <h2  id="modalOverLay" class="text-black text-xl font-bold"></h2>
-        <!-- <button class="px-3 border-[1px] border-amber-300 rounded-md text-sm text-slate-700 cursor-pointer">All Breeds</button> -->
-        <div class=" rounded-md flex border-[1px] bg-amber-300 border-amber-300 w-auto">
-         
-          <a href="Breeds.html" class="bg-white-100 rounded-r-md text-white px-2 text-center">Breeds<i class="fa-solid fa-magnifying-glass ml-2 border-l-2 border-amber-300 bg-amber-300 text-white " tabindex="1"></i></a>
-        </div>
+        
       </div>
-      <div  >
+      <div >
         <img src="" alt="">
       </div>
-      
-      <div id ="descriptionContainer">
-        <p id="description" class="bg-slate-100 p-10"> </p> 
+      <div>
+        <p id="description" class="bg-slate-100 p-10"> </p>
       </div>
-        
-      <div id = "breedListContainer">
-              
-      </div>
-       
     </div>
 
   </div>
 </section>
-<script src="./constraints.js"></script>
 <script>
-  // console.log(dogBreedList.length);
-  // console.log(dogBreeds.length);
   const petDetails =[{id:"1", 
                       title:"Dog", 
-                      imageUrl:"https://www.trvst.world/wp-content/uploads/2023/07/dog-quotes-erica-jong-dogs-come-into-our-3345.png", 
+                      imageUrl:"./assets/dog-quotes-erica-jong-dogs-come-into-our-3345.png", 
                       description:`Dogs are the ultimate embodiment of unconditional love, loyalty, and joy, acting as constant companions who offer comfort and reduce stress. Known as "man's best friend," they are selfless creatures that live in the moment, providing unwavering trust and enhancing human lives with their playful, empathetic nature. `
                     },
                     {id:"2", 
                       title:"Cat", 
-                      imageUrl:"https://cats.com/wp-content/uploads/2021/11/featured-image-compressed.jpg", 
+                      imageUrl:"./assets/featured-image-compressed.jpg", 
                       description:`Cats are affectionate, independent, and quiet companions that bring joy and comfort to a home. Their gentle purring can reduce stress, while their playful, curious nature acts as an endless source of entertainment. They are sophisticated, intelligent, and clean animals, often described as "small masterpieces" that leave paw prints on your heart.`
                     },
                     {id:"3", 
                       title:"Bird", 
-                      imageUrl:"https://www.trvst.world/wp-content/uploads/2024/01/bird-quotes-jacques-deval-god-loved-the-756.png", 
+                      imageUrl:"./assets/bird-quotes-jacques-deval-god-loved-the-756.png", 
                       description:`Birds are often celebrated as symbols of freedom, hope, and joy, characterized by their melodic songs, vibrant feathers, and effortless flight. They represent resilience and beauty, with their ability to soar high, sing after storms, and inhabit the sky symbolizing a wild, untamable spirit.`
                     },
                     {id:"4", 
                       title:"Fish", 
-                      imageUrl:"https://www.trvst.world/wp-content/uploads/2024/01/fish-quotes-kevin-bacon-we-are-being-cho-5635.png", 
+                      imageUrl:"./assets/fish-quotes-kevin-bacon-we-are-being-cho-5635.webp", 
                       description:`Fishes are remarkable, diverse aquatic creatures that occupy almost every aquatic habitat on Earth, from shallow streams to the deepest oceans. They are not only vital for ecosystems but are also fascinating, intelligent animals.`
                     },
                     {id:"5", 
                       title:"Rabbits", 
-                      imageUrl:"https://www.trvst.world/wp-content/uploads/2023/04/rabbit-quotes-matthew-scully-my-point-is-163.png", 
+                      imageUrl:"./assets/rabbit-quotes-matthew-scully-my-point-is-163.webp", 
                       description:`Rabbits are often described as gentle, playful, and adorable creatures. Beyond their cute appearance, they are intelligent animals with complex social lives and unique ways of expressing joy.`
                     },
                     {id:"6", 
                       title:"Cows", 
-                      imageUrl:".https://www.trvst.world/wp-content/uploads/2023/03/cow-quotes-samuel-johnson-a-cow-is-a-ver-9770.png", 
+                      imageUrl:"./assets/cow-quotes-samuel-johnson-a-cow-is-a-ver-9770.webp", 
                       description:`Cows are gentle, intelligent, and deeply social creatures, known for their calm demeanor and strong emotional intelligence. They form lasting friendships, possess great memories, and are remarkably playful. Beyond their docile nature, they are nurturing mothers and quiet, observant animals that bring peace to the countryside.`
                     }]
 
@@ -372,78 +364,26 @@
   
                     container.addEventListener("click", function(e){
                     const card =  e.target.closest(".category");
+
                     if(!card) return;
                     const id = card.dataset.id;
                     openModal(id);
-                    // breedPage(id);
                     });
 
 
-  
-
-
   function openModal(selectedId){
-
-    let breedlistdetails = breedsList.find(search)
-    function search(item){
-      return item.id === selectedId;
-    }
-
-    if(breedlistdetails){
+    const modal = document.getElementById("modalOverlay")
+    modal.classList.remove("hidden");
     
-      window.location.href="Breeds.html?type="+selectedId;
-
-    }else{
-      const modal = document.getElementById("modalOverlay")
-            modal.classList.remove("hidden");
-
-    // let mainChild=document.createElement("div")
-    //   mainChild.setAttribute("id","overlayChild");
-    //   mainChild.classList.add("rounded-xl w-10/12 h-5/6 z-50 bg-slate-900/70 p-4");
-
-    // const overlayContainer = document.createElement("div");
-    //   overlayContainer.setAttribute("class","w-full h-full overflow-y-scroll");
-
-    // const overlayTotalContainer = document.createElement("div")
-    //   overlayTotalContainer.setAttribute("class","w-full h-full overflow-y-scroll");
-
-    // const overlayHeadingContainer = document.createElement("div")
-    //   overlayHeadingContainer.setAttribute("class","bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl flex justify-between ");
-
-    // const overlayHeading = document.createElement("h2")
-    //   overlayHeading.setAttribute("class","text-black text-xl font-bold");
-    //   overlayHeading.setAttribute("id","text-black text-xl font-bold");
-
-    // const overlayButton = document.createElement("button")
-    //   overlayButton.setAttribute("class","px-3 border-[1px] border-amber-300 rounded-md text-sm text-slate-700 cursor-pointer");
-
-    // const searchContainer = document.createElement("div")
-    //   searchContainer.setAttribute("class","p-0 rounded-md flex border-[1px] border-amber-300 w-auto");
-
-    // const searchInput = document.createElement("input")
-    //  searchInput.setAttribute("id","searchText");
-    //  searchInput.setAttribute("type","search");
-    //  searchInput.setAttribute("placeholder","search");
-    //  searchInput.setAttribute("class","rounded-l-md px-2 w-auto");
- 
-
-
-    // const searchButton = document.createElement("button")
-    //   overlayButton.setAttribute("class","bg-white-100 w-6 rounded-r-md text-amber-300");
-
     const data = petDetails.find(function(item){
       return item.id === selectedId;
     })
 
-    modal.querySelector("h2").innerHTML = data.title;
-    modal.querySelector("img").src = data.imageUrl;
-    modal.querySelector("#description").innerHTML = data.description;
-    document.querySelector("body").classList.add("overflow-hidden");
-    
-    }
-    
+    modal.querySelector("h2").innerHTML = data.title
+    modal.querySelector("img").src = data.imageUrl
+    modal.querySelector("#description").innerHTML = data.description
+    document.querySelector("body").classList.add("overflow-hidden")
   }
-
 
   window.addEventListener("keyup",function(e){
     if(e.key  === "Escape"){
@@ -462,11 +402,9 @@
     'button, [href], input, [tabindex]:not([tabindex="-1"])'
   );
 
-  console.log(focusable.length);
-
   if (focusable.length === 0) {
     modal.focus();
-    e.preventDefault();           
+    e.preventDefault();
     return;
   }
 
@@ -474,12 +412,12 @@
   const last = focusable[focusable.length - 1];
 
   if (e.shiftKey) {
-    if (modal.activeElement === first) {
+    if (document.activeElement === first) {
       last.focus();
       e.preventDefault();
     }
   } else {
-    if (modal.activeElement === last) {
+    if (document.activeElement === last) {
       first.focus();
       e.preventDefault();
     }
@@ -498,10 +436,7 @@
     document.querySelector("body").classList.remove("overflow-hidden")
   }
 
-
-
   
 </script>
-
 </body>
 </html>
