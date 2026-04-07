@@ -2,53 +2,60 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+   <script src="https://cdn.tailwindcss.com"></script>
   <title>Document</title>
   <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./output.css" />
+  <link rel="stylesheet" href="./output.css" >
 </head>
 
-<body class=" w-dvw box-border ">
+<body class=" w-dvw box-border">
   <!-- navbar -->
-  <nav class="w-full fixed z-50">
+  <nav class="w-full fixed z-30" aria-label="Authentication">
     <div class=" w-full px-4 lg:px-12 flex flex-col ">
-      <div class="flex bg-slate-50">
-        <a class="mx-2 p-2">
-          <p>
-            <span><i class="fa-solid fa-phone"></i></span>Contact Us
-          </p>
-        </a>
-        <a class="mx-2 p-2">
-          <p>
-            <span><i class="fa-solid fa-heart-circle-bolt"></i></span>wishlist
-          </p>
-        </a>
-        <a class="mx-2 p-2">
-          <p>
-            <span><i class="fa-solid fa-basket-shopping"></i></span>MyCart
-          </p>
-        </a>
+      <div class=" flex flex-col sm:flex-row  bg-slate-100 sm:justify-evenly md:items-center">
+        <div class="flex">
+          <a class="mx-2 p-2">
+            <p class = "text-xs">
+              <span><i class="fa-solid fa-phone"></i></span>contactUs
+            </p>
+          </a>
+          <a class="mx-2 p-2">
+            <p class = "text-xs">
+              <span><i class="fa-solid fa-heart-circle-bolt"></i></span>wishlist
+            </p>
+          </a>
+          <a class="mx-2 p-2">
+            <p class = "text-xs ">
+              <span><i class="fa-solid fa-basket-shopping"></i></span>MyCart
+            </p>
+          </a>
+        </div>
+        <div class="p-0 rounded-md flex  self-center border-[1px] border-amber-300   md:h-8 md:m-1 w-11/12 sm:w-64">
+          <input id="searchText" type="search" placeholder="search" class="rounded-l-md px-2 w-full " />
+          <button class="border-l-[1px] border-amber-300 w-6 sm:w-8 rounded-r-md text-amber-300"><i class="fa-solid fa-magnifying-glass " ></i></button>
+        </div>
       </div>
-    
+
       <div class="flex justify-between backdrop-blur-lg bg-slate-50/30 py-2 px-2 subpixel-antialiased">
         <a href="#" id="brandName" class="flex content-center gap-1">
           <i class="fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
-          <p class="text-3xl font-bold text-myYellow antialiased">pets<span class="text-amber-600 antialiased">Toffeee</span></p>
+          <h1 class="text-3xl font-bold text-myYellow antialiased">pets<span
+              class="text-amber-600 antialiased">Toffeee</span></h1>
         </a>
         <div class="hidden lg:flex gap-8 ">
           <a href="#" class="navComp">Home</a>
           <a href="#" class="navComp">About</a>
-          <a href="#" class="navComp">Shop</a>
+          <a href="#bestSelling" class="navComp">Shop</a>
           <a href="#" class="navComp">Adoptions</a>
         </div>
-        <div class="hidden lg:flex items-baseline content-center gap-x-3 ">
-          <a href="#" class="text-base font-bold text-black subpixel-antialiased hover:text-yellow-400">SignUp</a>
-          <a href="#"
-            class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400">Log-in</a>
+        <div class="hidden lg:flex items-baseline content-center gap-x-3 " id="signupLogInContainer">
+          <a href="#" class="text-base font-bold text-black subpixel-antialiased hover:text-yellow-400" data-modal="signup">SignUp</a>
+          <a href="#" class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"  data-modal="login">Log-in</a>
         </div>
         <div class="relative lg:hidden ">
-          <input type="checkbox" id="menu-toggle" class="peer hidden" />
+          <input type="checkbox" id="menu-toggle" class="peer hidden" >
           <label for="menu-toggle" class="cursor-pointer px-2 text-2xl hover:text-yellow-400 lg:hidden">
             <i class="fa-solid fa-bars inline-block peer-checked:hidden"></i>
             <i class="fa-solid fa-xmark hidden peer-checked:inline-block"></i>
@@ -59,15 +66,17 @@
               <div class="absolute w-full h-full">
                 <div class="flex flex-col px-3">
                   <!-- <a href="#" class="my-2 text-lg font-robo fond-bold text-gray-700 subpixel-antialiased hover:text-amber-400">shop</a> -->
-                  <a href="#" class="navComp  ">Shop.</a>
+                  <a href="#bestSelling" class="navComp  ">Shop.</a>
                   <a href="#" class="navComp ">Adoptions</a>
-                  <a href="#" class="navComp " >AboutUs</a>
+                  <a href="#" class="navComp ">AboutUs</a>
                   <a href="#" class="navComp ">Contact</a>
                 </div>
                 <div class="my-4 h-0.5 bg-amber-400"></div>
                 <div class="flex items-center px-3 justify-between gap-4">
-                  <a href="#" class="text-2xl font-bold text-zinc-800 subpixel-antialiased hover:text-sky-700">SignUp</a>
-                  <a href="#" class="rounded-full bg-black px-6 py-3 text-sm font-bold text-slate-200 subpixel-antialiased hover:bg-sky-700 hover:text-slate-100">Log-in</a>
+                  <a href="#"
+                    class="text-2xl font-bold text-zinc-800 subpixel-antialiased hover:text-sky-700">SignUp</a>
+                  <a href="#"
+                    class="rounded-full bg-black px-6 py-3 text-sm font-bold text-slate-200 subpixel-antialiased hover:bg-sky-700 hover:text-slate-100">Log-in</a>
                 </div>
               </div>
             </div>
@@ -77,17 +86,18 @@
     </div>
   </nav>
   <!-- main -->
-  <main class="w-full px-4 lg:px-12 flex flex-col pt-24 gap-x-8 gap-y-8">
+  <main class="w-full px-4 lg:px-12 flex flex-col pt-24 gap-x-8 gap-y-8 bg-amber-50/40 ">
     <!-- adoptions -->
-    <section class="min-h">
+    <section class="min-h" aria-labelledby="adoptHeading" id="adoptions">
       <div class="flex w-full flex-col gap-2 rounded-lg bg-slate-50">
         <div class="flex flex-col sm:flex-row   sm:gap-y-2">
-          <div class="flex flex-col m-2 p-2 h-56  sm:h-64 md:h-72 sm:w-1/2 rounded-md justify-around bg-gradient-to-br from-slate-900 via-slate-900 to-blue-600">
-            <h1 class="font-bold text-white antialiased sm:inline text-2xl md:px-1 md:text-3xl lg:text-4xl">
-              Don’t Shop. Don’t Ignore.</h1>
+          <div
+            class="flex flex-col m-2 p-2 h-56  sm:h-64 md:h-72 sm:w-1/2 rounded-md justify-around bg-gradient-to-br from-slate-900 via-slate-900 to-blue-600">
+            <h2 id="adoptHeading" class="font-bold text-white antialiased sm:inline text-2xl md:px-1 md:text-3xl lg:text-4xl">
+              Don’t Shop. Don’t Ignore.</h2>
             <p class="text-lg md:text-xl md:px-6  leading-snug font-normal text-gray-100 antialiased flex text-wrap">
               Street animals are just as loving, loyal, and intelligent as any pet from a shop
-              <br />
+              <br>
               — Sometimes even more thankful.
             </p>
             <div class="flex w-full content-center justify-start">
@@ -96,10 +106,10 @@
           </div>
           <div class="m-2  h-56 sm:h-64 md:h-72 sm:w-1/2">
             <div class="w-full h-full px-2 bg-[url(./stDog1.jpg)] bg-cover flex flex-col  rounded-md justify-around">
-              <h1 class="font-black text-black antialiased sm:inline text-2xl md:px-1 md:text-3xl lg:text-4xl">
-              Feed the Streets</h1>
+              <h3 class="font-black text-black antialiased sm:inline text-2xl md:px-1 md:text-3xl lg:text-4xl">
+                Feed the Streets</h3>
               <p class="flex text-wrap text-xl leading-snug font-bold text-black antialiased">
-              Adoption is the purest form of love.</p>
+                Adoption is the purest form of love.</p>
               <div class="w-full content-center justify-start">
                 <button class="w-min rounded-md   bg-amber-500 px-10 py-2 text-xl text-slate-50 shadow-lg sm:block">Donate.</button>
               </div>
@@ -108,50 +118,52 @@
         </div>
       </div>
     </section>
-    <!-- browse catogary -->
-    <section class=" w-full  ">
+    <!-- browse Category -->
+    <section class=" w-full" aria-labelledby="chooseHeading">
       <div class="px-2 bg-slate-50 rounded-xl flex flex-col gap-y-5 py-2">
-        <div class="text-xl md:text-3xl text-gray-700 font-robo font-semibold flex justify-center subpixel-antialiased"><h1 >Browse by Catogery</h1></div>
-        <div class="grid grid-cols-2 justify-center sm:grid-cols-3 lg:grid-cols-6 gap-6">
-          <a href="#" class="bg-cyan-100 border-2 catgry">
+        <div class="text-xl md:text-3xl text-gray-700 font-robo font-semibold flex justify-center subpixel-antialiased">
+          <h2 id="chooseHeading">Browse by Category</h2>
+        </div>
+        <div class="grid grid-cols-2 justify-center sm:grid-cols-3 lg:grid-cols-6 gap-6 " id="petsContainer">
+          <a href="#" class="bg-cyan-100 border-2 category" data-id="1" >
             <i class="fa-solid fa-dog  text-5xl"></i>
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Dog's</h1>
+              <h3 class="text-3xl font-bold text-gray-900" >Dog's</h3>
               <p class="text-sm font-bold text-gray-900">@ Loyalty</p>
             </div>
           </a>
-          <a href="#" class="bg-amber-100 border-2 catgry">
+          <a href="#" class="bg-amber-100 border-2 category" data-id="2" >
             <i class="fa-solid fa-cat text-5xl"></i>
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Cat's</h1>
+              <h3 class="text-3xl font-bold text-gray-900">Cat's</h3>
               <p class="text-sm font-bold text-gray-900">@ Play</p>
             </div>
           </a>
-          <a href="#" class="bg-blue-100 border-2 catgry">
+          <a href="#" class="bg-blue-100 border-2 category" data-id="3" >
             <i class="fa-solid fa-dove text-5xl "></i>
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Bird's</h1>
+              <h3 class="text-3xl font-bold text-gray-900">Bird's</h3>
               <p class="text-sm font-bold text-gray-900">@ Freedom</p>
             </div>
           </a>
-          <a href="#" class="bg-purple-100 border-2 catgry">
-            <i class="fa-solid fa-fish-fins -rotate-90  text-5xl "></i>
+          <a href="#" class="bg-purple-100 border-2 category" data-id="4" >
+            <i class="fa-solid fa-fish-fins text-5xl "></i>
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Fish's</h1>
+              <h3 class="text-3xl font-bold text-gray-900" >Fish's</h3>
               <p class="text-sm font-bold text-gray-900">@ Peace</p>
             </div>
           </a>
-          <a href="#" class="bg-cyan-200 border-2 catgry">
+          <a href="#" class="bg-cyan-200 border-2 category" data-id="5" >
             <img src="rabbit.png" alt="" class="size-14">
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Rabbit</h1>
+              <h3 class="text-3xl font-bold text-gray-900" >Rabbit</h3>
               <p class="text-sm font-bold text-gray-900">@ funny</p>
             </div>
           </a>
-          <a href="#" class="bg-indigo-200 border-2 catgry">
+          <a href="#" class="bg-indigo-200 border-2 category" data-id="6" >
             <i class="fa-solid fa-cow text-5xl"></i>
             <div>
-              <h1 class="text-3xl font-bold text-gray-900">Cow's</h1>
+              <h3 class="text-3xl font-bold text-gray-900">Cow's</h3>
               <p class="text-sm font-bold text-gray-900">@ Peace</p>
             </div>
           </a>
@@ -159,70 +171,88 @@
       </div>
     </section>
     <!-- services -->
-    <section class="w-full">
+    <section class="w-full" aria-labelledby = "servicesHeading">
       <div class="p-2 bg-slate-50 grid grid-cols-2 md:grid-cols-6 gap-5">
         <div class="col-span-2 gap-y-5 flex flex-col justify-center">
-          <h1 class=" text-2xl md:text-3xl text-gray-700 font-robo font-semibold antialiased text-center">Explore services</h1>
-          <p class="text-md font-robo">Browse trusted listings, find your perfect store and connect with expert agents all in one place. 
+          <h2 id ="servicesHeading" class=" text-2xl md:text-3xl text-gray-700 font-robo font-semibold antialiased text-center">Explore
+            services</h2>
+          <p class="text-md font-robo">Browse trusted listings, find your perfect store and connect with expert agents
+            all in one place.
             Your journey to the right place Starts Here</p>
         </div>
-        
-          <a href="#" class="bg-cyan-100 border-2 h-48  py-2 rounded-lg  flex flex-col justify-around items-center hover:animate-wiggle">
-            <img class="h-3/5 min-w-fit place-content-center" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAErklEQVR4nO2dS4gcRRiAv901ok4O6kHwhUR8IB5U1uhBI+rGmyg+QA+CkhyNqKyXkHjwpOLr4mFNAj4QQaMm7p4iGhUVDQgSDzEiohBifK0asyKuui0/VMMw9ExXzVR31VT9H/ywLFU11fXR1d1V1dWgKIqiKIqiKIoyntwAbAcOAksmvgS2AetDVy4nLgA+AIqaeB84P3RlU+ca4FcLGWVI2nWhK53ymeEio4xF4LzQlU+RvUPIKEO6OMXzBbwYMWZ8Vih3dngQ8lzog0iJgx6EyC2x4oljHoRIGUpEQo76qozip8s6EPogUmK7ByFzoQ8iJdZ7EHJ96INIjXdHkCHjWopn1gA/DyFDh04aZJ1pYBcZOrjYMDKk/p6FDBn70jOjRWbMcMgB85xyzPwt/9MLuKIoLXAqsAHY3TVXPupwyWHgE+AFYCNwWhsHMu6cCGwxDVg0HH8DLwNnhz7oWDkT+KwFEb0hNwF3hj74GGUcCiCjjBXg3tCNEFM3FeLM6I1/gRtDN0YMbIlARmHiN+B0Mr+b+j0CEUVXvEHGbIxAQFXcRKbsjqDxq+I7oEOGfB1B4/eLx8kQH4sWmop/gEvIjCLy+BCYICOKMYgNZERdY/xnIvSzyRoyoa4xpA+/tMHG3muuFUVN7AOOJwPqGsI23bAxBdxjmfYpMiC0kJIXLQcgbyZxYhHSMavi69LLm1vnkDCxCMFcq/6yyPORGaFOkpiECJss8+0BTiBBYhMivGmZdz7QnZd0r58Cu3IRcjLwrWV+kbeKdnnW/LYs/MhCiHAFsGxZxk7gONrhWnO3l50Q4X6Hcl4CJmm+q/qm6zezEyLMOpT1fMNSyq4qayHCIw7l7WhodLi7q8peiPCYQ5lP4o4MXt4OPAq8bfmqRdZChKcty1wxD5k+G1+FVDBR0Y/3i80V+eX68rnHumcvpJSyzaLcrVTn9bnkSYU4SLmcahZUiH8hmHmUV/qU+daAOy2X22gV4og8nT9s1nCVU71P1Aw6TucmZNlhyGNUISVyNpxi+fwx5fE6MhZCLgIublmIKws5CRk2fZvMBhRyEvAQ8I6ZaJNnq3O7E/wx4Afl1E5RyHQgIWcA+yvKEQfX2UwGvZ6okCng45aFiIyvBpT1QzktfWGfoYPFns2PUxJCC7fEw8RtZUXOAl4zb94eNWdG707UOQiZDyzkAZfKpi5kyjzHhBRyi0uFUxcyHVjG98BqlwqnLmQ2oIw/zQbVTqQuZCGQjP01czdZCpkI8CbyspmaHnpdWcpChJ9alnEZI5K6kLkWhXgZA0tdyIwKie855EcVEhdzKiQuZlRIXKxWIXHRUSFx0VEhcdFRIXHRUSHjKWSpofxOqBBUSNuoEOKiM05Cel/nqgrZxqmkcEwfA2MlxObr0Ecc5xdkqVFMTFpuFXWkofxO2HxJ59Wu9Dst0svHxWJjn0W95xvMb83dFtuEr+1Kf6XFTnR3ER931NR5pXvZZwP5rZk0L8L0uxbIpjG93DdAyq6IN7d8ZkBjbm4hvzWrzHKZL8w2Sr8YSVcNyHO1OUUXTR5ZZfFgi1thDMut5puLS2Y15x7HpTqj5lcURVEURVHwxf/UzznQ/MCkXAAAAABJRU5ErkJggg==" alt="pet">
-            <div>
-              <h1 class="text-xl md:text-xl font-bold text-gray-900">Training</h1>
-            </div>
-          </a>
-          <a href="#" class="bg-green-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
-            <i class='fas fa-bath h-3/5 text-7xl'></i>
-            <div>
-              <h1 class="text-xl md:text-xl font-bold text-gray-900">Grooming</h1>
-            </div>
-          </a>
-          <a href="#" class="bg-red-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
-            <i class='fas fa-home h-3/5 text-7xl'></i>
-            <div>
-              <h1 class="text-xl md:text-xl font-bold text-gray-900">Boarding</h1>
-            </div>
-          </a>
-          <a href="#" class="bg-yellow-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
-            <i class='fas fa-clinic-medical h-3/5 text-7xl'></i>
-            <div>
-              <h1 class="text-lg md:text-xl font-bold text-gray-900">Vet Shops</h1>
-            </div>
-          </a>
-        
+
+        <a href="#"
+          class="bg-cyan-100 border-2 h-48  py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
+          <i class="fa-solid fa-bone h-3/5 text-7xl"></i>
+          <div>
+            <h3 class="text-xl md:text-xl font-bold text-gray-900">Training</h3>
+          </div>
+        </a>
+        <a href="#"
+          class="bg-green-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
+          <i class='fas fa-bath h-3/5 text-7xl'></i>
+          <div>
+            <h3 class="text-xl md:text-xl font-bold text-gray-900">Grooming</h3>
+          </div>
+        </a>
+        <a href="#"
+          class="bg-red-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
+          <i class='fas fa-home h-3/5 text-7xl'></i>
+          <div>
+            <h3 class="text-xl md:text-xl font-bold text-gray-900">Boarding</h3>
+          </div>
+        </a>
+        <a href="#"
+          class="bg-yellow-100 border-2 h-48 py-2 rounded-lg  flex flex-col justify-center items-center hover:animate-wiggle">
+          <i class='fas fa-clinic-medical h-3/5 text-7xl'></i>
+          <div>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900">Vet Shops</h3>
+          </div>
+        </a>
       </div>
     </section>
     <!-- Adds -->
-    <section class="w-full ">
+    <section class="w-full" aria-labelledby="Adds">
       <div class="p-2 gap-y-2 lg:gap-x-4 flex flex-col md:flex-row">
-        <div class="flex flex-col p-2 h-56 sm:h-64 md:h-72 md:w-1/2 border-2 rounded-2xl justify-around bg-stone-400"></div>
-        <div class="flex flex-col p-2 h-56 sm:h-64 md:h-72 md:w-1/2 border-2 rounded-2xl justify-around bg-gradient-to-t from-blue-200 via-blue-100 to-blue-200"></div>
+        <div class="flex flex-col p-2 h-56 sm:h-64 md:h-72 md:w-1/2 border-2 rounded-2xl justify-around bg-stone-400">
+          <h2 id="Adds" class="sr-only">Adds</h2>
+        </div>
+        <div
+          class="flex flex-col p-2 h-56 sm:h-64 md:h-72 md:w-1/2 border-2 rounded-2xl justify-around bg-gradient-to-t from-blue-200 via-blue-100 to-blue-200">
+        </div>
       </div>
     </section>
     <!-- Best selling -->
-    <section class="w-full ">
+    <section class="w-full" aria-labelledby="bestSelling" id="bestSelling">
       <div class="p-2 flex flex-col">
         <div class="flex flex-row p-2 rounded-lg items-center justify-between bg-slate-300 border-2">
-          <h1 class="text-2xl sm:text-4xl text-black font-serif font-semibold antialiased">Best Selling</h1>
-          <button class="w-min rounded-full bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block text-nowrap">Show More.</button>
+          <h2 id="bestSelling" class="text-2xl sm:text-4xl text-black font-serif font-semibold antialiased">Best Selling</h2>
+          <button
+            class="w-min rounded-full bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block text-nowrap">Show
+            More.</button>
         </div>
         <div class=" grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-4 lg:gap-8 xl:gap-11 py-1 w-full justify-end">
-          <div class="h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg bg-blue-200 col-span-2 md:col-span-1 flex flex-col items-center justify-between py-4">
-            <h1 class="text-xl sm:text-2xl md:text-3xl text-red-950 font-serif font-semibold text-center antialiased">Pets Toffeee</h1>
+          <div
+            class="h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg bg-blue-200 col-span-2 md:col-span-1 flex flex-col items-center justify-between py-4">
+            <h3 class="text-xl sm:text-2xl md:text-3xl text-red-950 font-serif font-semibold text-center antialiased">
+              Pets Toffeee</h3>
             <p class="text-md md:text-xl font-serif text-red-950 text-center">we Suggest the best Here</p>
-            <button class="rounded-md bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block w-3xl mx-6">Explore</button>
+            <button
+              class="rounded-md bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block w-3xl mx-6">Explore</button>
           </div>
-          <div class="h-56 sm:h-72 md:h-80 lg:h-96 rounded-lg border-gray-100 border-2 bg-gray-50/40 filter backdrop-blur-md flex flex-col items-center justify-between py-4 px-2">
-            <h1 class="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-serif font-semibold antialiased">Wesley Farms</h1>
-            <p class="text-md sm:text-xl font-serif text-center">Grooming services available Here</p>
+          <div
+            class="h-56 sm:h-72 md:h-80 lg:h-96 rounded-lg border-gray-100 border-2 bg-gray-50/40 filter backdrop-blur-md flex flex-col items-center justify-between py-4 px-2">
+            <h3 class="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-serif font-semibold antialiased">Pet Farms
+            </h3>
+            <p class="text-md sm:text-xl font-serif text-center">Animal First-Aid services available Here</p>
             <button class="rounded-md bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block">Explore</button>
           </div>
-          <div class="h-56 sm:h-72 md:h-80 lg:h-96 rounded-lg border-gray-100 border-2 bg-gray-50/40 filter backdrop-blur-md flex flex-col items-center justify-between py-4 px-2">
-            <h1 class="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-serif font-semibold antialiased">Wesley Farms</h1>
-            <p class="text-md sm:text-xl font-serif text-center">Boarding services available Here</p>
-            <p class="text-md md:text-lg font-serif text-center">we treat pets as our home members</p>
+          <div
+            class="h-56 sm:h-72 md:h-80 lg:h-96 rounded-lg border-gray-100 border-2 bg-gray-50/40 filter backdrop-blur-md flex flex-col items-center justify-between py-4 px-2">
+            <h3 class="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-serif font-semibold antialiased">Organic Farms
+            </h3>
+            <p class="text-md sm:text-xl font-serif text-center">being organic is the moto</p>
+            <p class="text-md md:text-lg font-serif text-center">Save Farmer...</p>
             <button class="rounded-md bg-amber-500 px-5 py-2 text-xl text-slate-50 shadow-lg sm:block">Explore</button>
           </div>
         </div>
@@ -230,49 +260,248 @@
     </section>
 
   </main>
-</body>
-<footer class="w-full px-6 lg:px-14 gap-x-8 gap-y-8">
+
+  <footer class="w-full px-6 lg:px-14 gap-x-8 gap-y-8">
   <div class=" flex flex-col basis-auto rounded-lg lg:flex-row bg-orange-100 lg:py-4">
     <div class="px-5">
       <div class="flex py-3">
         <i class="fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
-        <p class="text-3xl font-bold text-myYellow antialiased">pets<span class="text-amber-600 antialiased">Toffeee</span></p>
+        <h2 class="text-3xl font-bold text-myYellow antialiased">pets<span
+            class="text-amber-600 antialiased">Toffeee</span></h2>
       </div>
-      <p class="text-red-950 md:text-xl lg:text-2xl">we strongly belive every pet deserve some love</p>
       <div>
-
+         <p class="text-red-950 md:text-xl lg:text-2xl">we strongly believe every pet deserves some love</p>
       </div>
     </div>
     <div class="flex justify-between w-full lg:gap-x- gap-y-2 py-4 px-5 lg:px-10">
       <div class="flex flex-col gap-3">
-        <h1 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Information</h1>
+        <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Information</h3>
         <div class="flex flex-col gap-2">
           <p class="text-red-950 text-sm lg:text-lg font-semibold">AboutUs</p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">Catogories</p>
+          <p class="text-red-950 text-sm lg:text-lg font-semibold">Categories</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Products</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Pricing</p>
         </div>
       </div>
       <div class="flex flex-col gap-3">
-        <h1 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Menu</h1>
+        <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Menu</h3>
         <div class="flex flex-col gap-2">
           <p class="text-red-950 text-sm lg:text-lg font-semibold">AboutUs</p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">Catogories</p>
+          <p class="text-red-950 text-sm lg:text-lg font-semibold">Categories</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Products</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Pricing</p>
         </div>
       </div>
       <div class="flex flex-col gap-3">
-        <h1 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Privacy</h1>
+        <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">Privacy</h3>
         <div class="flex flex-col gap-2">
           <p class="text-red-950 text-sm lg:text-lg font-semibold">AboutUs</p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">Catogories</p>
+          <p class="text-red-950 text-sm lg:text-lg font-semibold">Categories</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Products</p>
           <p class="text-red-950 text-sm lg:text-lg font-semibold">Pricing</p>
         </div>
       </div>
     </div>
   </div>
-</footer>
+  </footer>
+<section role="dialog" aria-modal="true" aria-labelledby="modalOverLay" id="modalOverlay" class="fixed inset-0 w-screen h-screen  z-50 bg-slate-100/10 backdrop-blur-md flex flex-col justify-center items-center hidden">
+  <div class=" rounded-xl w-10/12 h-5/6 z-50 bg-slate-900/70 p-4 " id ="overlayChild">
+    
+    <div class="w-full h-full overflow-y-scroll" >
+      <div class="bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl flex justify-between ">
+        <h2  id="modalOverLay" class="text-black text-xl font-bold"></h2>
+        <!-- <button class="px-3 border-[1px] border-amber-300 rounded-md text-sm text-slate-700 cursor-pointer">All Breeds</button> -->
+        <div class=" rounded-md flex border-[1px] bg-amber-300 border-amber-300 w-auto">
+         
+          <a href="Breeds.html" class="bg-white-100 rounded-r-md text-white px-2 text-center">Breeds<i class="fa-solid fa-magnifying-glass ml-2 border-l-2 border-amber-300 bg-amber-300 text-white " tabindex="1"></i></a>
+        </div>
+      </div>
+      <div  >
+        <img src="" alt="">
+      </div>
+      
+      <div id ="descriptionContainer">
+        <p id="description" class="bg-slate-100 p-10"> </p> 
+      </div>
+        
+      <div id = "breedListContainer">
+              
+      </div>
+       
+    </div>
 
+  </div>
+</section>
+<script src="./constraints.js"></script>
+<script>
+  // console.log(dogBreedList.length);
+  // console.log(dogBreeds.length);
+  const petDetails =[{id:"1", 
+                      title:"Dog", 
+                      imageUrl:"https://www.trvst.world/wp-content/uploads/2023/07/dog-quotes-erica-jong-dogs-come-into-our-3345.png", 
+                      description:`Dogs are the ultimate embodiment of unconditional love, loyalty, and joy, acting as constant companions who offer comfort and reduce stress. Known as "man's best friend," they are selfless creatures that live in the moment, providing unwavering trust and enhancing human lives with their playful, empathetic nature. `
+                    },
+                    {id:"2", 
+                      title:"Cat", 
+                      imageUrl:"https://cats.com/wp-content/uploads/2021/11/featured-image-compressed.jpg", 
+                      description:`Cats are affectionate, independent, and quiet companions that bring joy and comfort to a home. Their gentle purring can reduce stress, while their playful, curious nature acts as an endless source of entertainment. They are sophisticated, intelligent, and clean animals, often described as "small masterpieces" that leave paw prints on your heart.`
+                    },
+                    {id:"3", 
+                      title:"Bird", 
+                      imageUrl:"https://www.trvst.world/wp-content/uploads/2024/01/bird-quotes-jacques-deval-god-loved-the-756.png", 
+                      description:`Birds are often celebrated as symbols of freedom, hope, and joy, characterized by their melodic songs, vibrant feathers, and effortless flight. They represent resilience and beauty, with their ability to soar high, sing after storms, and inhabit the sky symbolizing a wild, untamable spirit.`
+                    },
+                    {id:"4", 
+                      title:"Fish", 
+                      imageUrl:"https://www.trvst.world/wp-content/uploads/2024/01/fish-quotes-kevin-bacon-we-are-being-cho-5635.png", 
+                      description:`Fishes are remarkable, diverse aquatic creatures that occupy almost every aquatic habitat on Earth, from shallow streams to the deepest oceans. They are not only vital for ecosystems but are also fascinating, intelligent animals.`
+                    },
+                    {id:"5", 
+                      title:"Rabbits", 
+                      imageUrl:"https://www.trvst.world/wp-content/uploads/2023/04/rabbit-quotes-matthew-scully-my-point-is-163.png", 
+                      description:`Rabbits are often described as gentle, playful, and adorable creatures. Beyond their cute appearance, they are intelligent animals with complex social lives and unique ways of expressing joy.`
+                    },
+                    {id:"6", 
+                      title:"Cows", 
+                      imageUrl:".https://www.trvst.world/wp-content/uploads/2023/03/cow-quotes-samuel-johnson-a-cow-is-a-ver-9770.png", 
+                      description:`Cows are gentle, intelligent, and deeply social creatures, known for their calm demeanor and strong emotional intelligence. They form lasting friendships, possess great memories, and are remarkably playful. Beyond their docile nature, they are nurturing mothers and quiet, observant animals that bring peace to the countryside.`
+                    }]
+
+
+  const container = document.getElementById("petsContainer"); 
+  
+                    container.addEventListener("click", function(e){
+                    const card =  e.target.closest(".category");
+                    if(!card) return;
+                    const id = card.dataset.id;
+                    openModal(id);
+                    // breedPage(id);
+                    });
+
+
+  
+
+
+  function openModal(selectedId){
+
+    let breedlistdetails = breedsList.find(search)
+    function search(item){
+      return item.id === selectedId;
+    }
+
+    if(breedlistdetails){
+    
+      window.location.href="Breeds.html?type="+selectedId;
+
+    }else{
+      const modal = document.getElementById("modalOverlay")
+            modal.classList.remove("hidden");
+
+    // let mainChild=document.createElement("div")
+    //   mainChild.setAttribute("id","overlayChild");
+    //   mainChild.classList.add("rounded-xl w-10/12 h-5/6 z-50 bg-slate-900/70 p-4");
+
+    // const overlayContainer = document.createElement("div");
+    //   overlayContainer.setAttribute("class","w-full h-full overflow-y-scroll");
+
+    // const overlayTotalContainer = document.createElement("div")
+    //   overlayTotalContainer.setAttribute("class","w-full h-full overflow-y-scroll");
+
+    // const overlayHeadingContainer = document.createElement("div")
+    //   overlayHeadingContainer.setAttribute("class","bg-white p-6 rounded-tr-lg rounded-tl-lg shadow-xl flex justify-between ");
+
+    // const overlayHeading = document.createElement("h2")
+    //   overlayHeading.setAttribute("class","text-black text-xl font-bold");
+    //   overlayHeading.setAttribute("id","text-black text-xl font-bold");
+
+    // const overlayButton = document.createElement("button")
+    //   overlayButton.setAttribute("class","px-3 border-[1px] border-amber-300 rounded-md text-sm text-slate-700 cursor-pointer");
+
+    // const searchContainer = document.createElement("div")
+    //   searchContainer.setAttribute("class","p-0 rounded-md flex border-[1px] border-amber-300 w-auto");
+
+    // const searchInput = document.createElement("input")
+    //  searchInput.setAttribute("id","searchText");
+    //  searchInput.setAttribute("type","search");
+    //  searchInput.setAttribute("placeholder","search");
+    //  searchInput.setAttribute("class","rounded-l-md px-2 w-auto");
+ 
+
+
+    // const searchButton = document.createElement("button")
+    //   overlayButton.setAttribute("class","bg-white-100 w-6 rounded-r-md text-amber-300");
+
+    const data = petDetails.find(function(item){
+      return item.id === selectedId;
+    })
+
+    modal.querySelector("h2").innerHTML = data.title;
+    modal.querySelector("img").src = data.imageUrl;
+    modal.querySelector("#description").innerHTML = data.description;
+    document.querySelector("body").classList.add("overflow-hidden");
+    
+    }
+    
+  }
+
+
+  window.addEventListener("keyup",function(e){
+    if(e.key  === "Escape"){
+      const modal = document.getElementById("modalOverlay")
+      if(!modal.classList.contains("hidden") ){
+        closeModalOverlay(modal)
+      } 
+    }
+  })
+
+  window.addEventListener("keydown", function(e) {
+  const modal = document.getElementById("modalOverlay");
+  if (e.key !== "Tab" || modal.classList.contains("hidden")) return;
+
+  const focusable = modal.querySelectorAll(
+    'button, [href], input, [tabindex]:not([tabindex="-1"])'
+  );
+
+  console.log(focusable.length);
+
+  if (focusable.length === 0) {
+    modal.focus();
+    e.preventDefault();           
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.shiftKey) {
+    if (modal.activeElement === first) {
+      last.focus();
+      e.preventDefault();
+    }
+  } else {
+    if (modal.activeElement === last) {
+      first.focus();
+      e.preventDefault();
+    }
+  }
+});
+
+  const modal = document.getElementById("modalOverlay")
+  modal.addEventListener("click", function (hide) {
+  const childmodal =  hide.target.closest("#overlayChild")
+  if (!childmodal) {
+   closeModalOverlay(modal)
+  }});
+
+  function closeModalOverlay(modal){
+     modal.classList.add("hidden");
+    document.querySelector("body").classList.remove("overflow-hidden")
+  }
+
+
+
+  
+</script>
+
+</body>
 </html>
