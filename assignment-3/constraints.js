@@ -2319,7 +2319,40 @@ const dogBreeds = [
   temperament: ["affectionate","playful","friendly","gentle"], anatomy: { body: "small", ears: "drop", tail: "curled", eyes: "round dark" }
 }];
 
-const breedsList =[ {   id:"1", list: dogBreeds,
-                        title:"Explore to know more about your companion", 
-                        description:`Dogs are the ultimate embodiment of unconditional love, loyalty, and joy, acting as constant companions who offer comfort and reduce stress. Known as "man's best friend," they are selfless creatures that live in the moment, providing unwavering trust and enhancing human lives with their playful, empathetic nature. `
-                    } ]
+const  catBreeds =[
+  {"name":"Abyssinian","lifeSpan":"12-16","origin":"Ethiopia","type":"Natural","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":5},"coat":{"length":"short","type":"ticked","shedding":"low"},"temperament":["active","playful","intelligent"],"anatomy":{"body":"slender","ears":"large","tail":"long","eyes":"almond"}},
+  {"name":"American Bobtail","lifeSpan":"11-16","origin":"USA","type":"Natural","height_cm":{"min":23,"max":30},"weight_kg":{"min":3,"max":7},"coat":{"length":"short/long","type":"shaggy","shedding":"medium"},"temperament":["friendly","intelligent"],"anatomy":{"body":"medium","ears":"medium","tail":"bobbed","eyes":"oval"}},
+  {"name":"American Curl","lifeSpan":"12-16","origin":"USA","type":"Mutation","height_cm":{"min":20,"max":25},"weight_kg":{"min":2.5,"max":5},"coat":{"length":"short/long","type":"silky","shedding":"low"},"temperament":["affectionate","playful"],"anatomy":{"body":"slender","ears":"curled","tail":"long","eyes":"walnut"}},
+  {"name":"American Shorthair","lifeSpan":"15-20","origin":"USA","type":"Working","height_cm":{"min":23,"max":30},"weight_kg":{"min":4,"max":7},"coat":{"length":"short","type":"dense","shedding":"medium"},"temperament":["easygoing","independent"],"anatomy":{"body":"muscular","ears":"medium","tail":"thick","eyes":"round"}},
+  {"name":"American Wirehair","lifeSpan":"12-18","origin":"USA","type":"Mutation","height_cm":{"min":23,"max":30},"weight_kg":{"min":3,"max":6},"coat":{"length":"short","type":"wire","shedding":"low"},"temperament":["calm","friendly"],"anatomy":{"body":"medium","ears":"medium","tail":"medium","eyes":"round"}},
+  {"name":"Aphrodite (Giant)","lifeSpan":"12-15","origin":"Cyprus","type":"Natural","height_cm":{"min":30,"max":40},"weight_kg":{"min":6,"max":11},"coat":{"length":"semi-long","type":"coarse","shedding":"medium"},"temperament":["independent","loyal"],"anatomy":{"body":"large","ears":"medium","tail":"long","eyes":"oval"}},
+  {"name":"Arabian Mau","lifeSpan":"12-15","origin":"Middle East","type":"Natural","height_cm":{"min":25,"max":30},"weight_kg":{"min":4,"max":7},"coat":{"length":"short","type":"smooth","shedding":"low"},"temperament":["active","loyal"],"anatomy":{"body":"slender","ears":"large","tail":"long","eyes":"oval"}},
+  {"name":"Australian Mist","lifeSpan":"12-16","origin":"Australia","type":"Hybrid","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":6},"coat":{"length":"short","type":"spotted","shedding":"low"},"temperament":["friendly","gentle"],"anatomy":{"body":"medium","ears":"medium","tail":"medium","eyes":"round"}},
+  {"name":"Balinese","lifeSpan":"12-20","origin":"USA","type":"Mutation","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":5},"coat":{"length":"long","type":"silky","shedding":"low"},"temperament":["vocal","intelligent"],"anatomy":{"body":"slender","ears":"large","tail":"plumed","eyes":"blue"}},
+  {"name":"Bengal","lifeSpan":"12-16","origin":"USA","type":"Hybrid","height_cm":{"min":20,"max":30},"weight_kg":{"min":3.5,"max":7},"coat":{"length":"short","type":"spotted/rosetted","shedding":"low"},"temperament":["energetic","curious"],"anatomy":{"body":"muscular","ears":"small","tail":"thick","eyes":"round"}},
+  {"name":"Birman","lifeSpan":"12-16","origin":"Myanmar/France","type":"Companion","height_cm":{"min":25,"max":30},"weight_kg":{"min":3,"max":6},"coat":{"length":"long","type":"silky","shedding":"medium"},"temperament":["gentle","affectionate"],"anatomy":{"body":"medium","ears":"rounded","tail":"plumed","eyes":"blue"}},
+  {"name":"Bombay","lifeSpan":"12-16","origin":"USA","type":"Hybrid","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":5},"coat":{"length":"short","type":"glossy","shedding":"low"},"temperament":["social","playful"],"anatomy":{"body":"muscular","ears":"rounded","tail":"medium","eyes":"copper"}},
+  {"name":"British Shorthair","lifeSpan":"12-20","origin":"UK","type":"Companion","height_cm":{"min":30,"max":35},"weight_kg":{"min":4,"max":8},"coat":{"length":"short","type":"plush","shedding":"medium"},"temperament":["calm","loyal"],"anatomy":{"body":"stocky","ears":"small","tail":"thick","eyes":"round"}},
+  {"name":"British Longhair","lifeSpan":"12-15","origin":"UK","type":"Companion","height_cm":{"min":30,"max":35},"weight_kg":{"min":4,"max":8},"coat":{"length":"long","type":"dense","shedding":"high"},"temperament":["calm","quiet"],"anatomy":{"body":"stocky","ears":"small","tail":"fluffy","eyes":"round"}},
+  {"name":"Burmese","lifeSpan":"10-17","origin":"Myanmar/Thailand","type":"Companion","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":6},"coat":{"length":"short","type":"silky","shedding":"low"},"temperament":["social","affectionate"],"anatomy":{"body":"muscular","ears":"medium","tail":"medium","eyes":"gold"}},
+  {"name":"Burmilla","lifeSpan":"10-15","origin":"UK","type":"Hybrid","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":6},"coat":{"length":"short/semi","type":"shaded","shedding":"low"},"temperament":["playful","gentle"],"anatomy":{"body":"medium","ears":"medium","tail":"medium","eyes":"green"}},
+  {"name":"Chartreux","lifeSpan":"12-15","origin":"France","type":"Natural","height_cm":{"min":23,"max":28},"weight_kg":{"min":4,"max":7},"coat":{"length":"short","type":"woolly","shedding":"medium"},"temperament":["quiet","loyal"],"anatomy":{"body":"muscular","ears":"medium","tail":"medium","eyes":"copper"}},
+  {"name":"Chausie","lifeSpan":"10-15","origin":"Egypt/USA","type":"Hybrid","height_cm":{"min":25,"max":35},"weight_kg":{"min":5,"max":10},"coat":{"length":"short","type":"smooth","shedding":"low"},"temperament":["active","wild"],"anatomy":{"body":"large","ears":"large","tail":"medium","eyes":"gold"}},
+  {"name":"Colorpoint Shorthair","lifeSpan":"12-16","origin":"USA","type":"Hybrid","height_cm":{"min":20,"max":25},"weight_kg":{"min":3,"max":5},"coat":{"length":"short","type":"fine","shedding":"low"},"temperament":["vocal","social"],"anatomy":{"body":"slender","ears":"large","tail":"long","eyes":"blue"}},
+  {"name":"Cornish Rex","lifeSpan":"11-15","origin":"UK","type":"Mutation","height_cm":{"min":20,"max":25},"weight_kg":{"min":2.5,"max":4},"coat":{"length":"short","type":"curly","shedding":"low"},"temperament":["active","playful"],"anatomy":{"body":"slender","ears":"large","tail":"long","eyes":"oval"}},
+  {"name":"Cymric","lifeSpan":"9-14","origin":"Isle of Man","type":"Natural","height_cm":{"min":25,"max":30},"weight_kg":{"min":3.5,"max":6},"coat":{"length":"long","type":"dense","shedding":"medium"},"temperament":["calm","loyal"],"anatomy":{"body":"round","ears":"medium","tail":"tailless","eyes":"round"}}
+  // ⚠️ truncated for readability
+]
+
+const breedsList = {
+  1: {
+    breeds: dogBreeds,
+    title: "Explore to know more about your companion",
+    description: `Dogs are the ultimate embodiment of unconditional love, loyalty, and joy, acting as constant companions who offer comfort and reduce stress. Known as "man's best friend," they are selfless creatures that live in the moment, providing unwavering trust and enhancing human lives with their playful, empathetic nature.`
+  },
+  2: {
+    breeds: catBreeds,
+    title: "Meet your purr-fect companion",
+    description: `Cats are independent, curious, and graceful companions known for their playful yet calm nature. They form strong bonds with their owners while maintaining a sense of independence. With their soothing purrs and affectionate behavior, cats bring comfort, reduce stress, and add a touch of elegance and mystery to everyday life.`
+  }
+};

@@ -372,18 +372,33 @@
 
 
   function openModal(selectedId){
-    const modal = document.getElementById("modalOverlay")
-    modal.classList.remove("hidden");
-    
-    const data = petDetails.find(function(item){
-      return item.id === selectedId;
-    })
 
-    modal.querySelector("h2").innerHTML = data.title
-    modal.querySelector("img").src = data.imageUrl
-    modal.querySelector("#description").innerHTML = data.description
-    document.querySelector("body").classList.add("overflow-hidden")
+    let breedlistdetails = breedsList[selectedId]
+    // function search(item){
+    //   return item.id === selectedId;
+    // }
+
+    if(breedlistdetails){
+
+      window.location.href="Breeds.html?type="+selectedId;
+
+    }else{
+
+      const modal = document.getElementById("modalOverlay")
+            modal.classList.remove("hidden");
+
+      const data = petDetails.find(function(item){
+                   return item.id === selectedId;
+      })
+
+      modal.querySelector("h2").innerHTML = data.title;
+      modal.querySelector("img").src = data.imageUrl;
+      modal.querySelector("#description").innerHTML = data.description;
+      document.querySelector("body").classList.add("overflow-hidden");
+    
+    }
   }
+
 
   window.addEventListener("keyup",function(e){
     if(e.key  === "Escape"){
