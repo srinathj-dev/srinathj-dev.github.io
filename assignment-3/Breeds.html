@@ -5,84 +5,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Document</title>
+  <title>petsToffeee</title>
   <script src="https://kit.fontawesome.com/cc2553a343.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./output.css" />
 </head>
 
 <body class="w-dvw box-border bg-red-50">
   <!-- navbar -->
-  <nav class="w-full fixed z-30" aria-label="Authentication">
-    <div class="w-full px-4 lg:px-12 flex flex-col">
-      <div class="flex flex-col sm:flex-row bg-slate-100 sm:justify-start md:items-center">
-        <div class="flex">
-          <a class="mx-2 p-2">
-            <p class="text-xs">
-              <span><i class="fa-solid fa-phone"></i></span>contactUs
+  <nav class = "w-full fixed z-30" aria-label="Primary">
+    <div class = "w-full px-4 lg:px-12 flex flex-col">
+      <div class = "flex flex-col sm:flex-row bg-slate-100 sm:justify-start md:items-center">
+        <div class = "flex">
+          <a class = "mx-2 p-2" href="#">
+            <p class = "text-xs">
+              <span><i class = "fa-solid fa-phone"></i></span>Contact Us
             </p>
           </a>
-          <a class="mx-2 p-2">
-            <p class="text-xs">
-              <span><i class="fa-solid fa-heart-circle-bolt"></i></span>wishlist
+          <a class = "mx-2 p-2" href="#">
+            <p class = "text-xs">
+              <span><i class = "fa-solid fa-heart-circle-bolt"></i></span>Wish list
             </p>
           </a>
-          <a class="mx-2 p-2">
-            <p class="text-xs">
-              <span><i class="fa-solid fa-basket-shopping"></i></span>MyCart
+          <a class = "mx-2 p-2" href="#">
+            <p class = "text-xs">
+              <span><i class = "fa-solid fa-basket-shopping"></i></span>My Cart
             </p>
           </a>
         </div>
-        <!-- <div class="p-0 rounded-md flex self-center border-[1px] border-amber-300 md:h-8 md:m-1 w-11/12 sm:w-64">
-          <input id="searchText" type="search" placeholder="search" class="rounded-l-md px-2 w-full" />
-          <button class="border-l-[1px] border-amber-300 w-6 sm:w-8 rounded-r-md text-amber-300">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>  -->
       </div>
 
-      <div class="flex justify-between backdrop-blur-xl bg-slate-50/30 py-2 px-2 subpixel-antialiased">
+      <div class = "flex justify-between backdrop-blur-xl bg-slate-50/30 py-2 px-2 subpixel-antialiased">
         <a href="#" id="brandName" class="flex content-center gap-1">
-          <i class="fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
-          <h1 class="text-3xl font-bold text-myYellow antialiased">
-            pets<span class="text-amber-600 antialiased">Toffeee</span>
+          <i class = "fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
+          <h1 class = "text-3xl font-bold text-myYellow antialiased">
+            pets<span class = "text-amber-600 antialiased">Toffeee</span>
           </h1>
         </a>
-        <div class="hidden lg:flex gap-8">
-          <a href="index.html" class="navComp">Home</a>
-          <a href="#" class="navComp">About</a>
-          <a href="index.html#bestSelling" class="navComp">Shop</a>
-          <a href="index.html#adoptions" class="navComp">Adoptions</a>
+        <div class = "hidden lg:flex gap-8">
+          <a href = "index.html" class = "navComp">Home</a>
+          <a href = "#" class = "navComp">About</a>
+          <a href = "index.html#bestSelling" class = "navComp">Shop</a>
+          <a href = "index.html#adoptions" class = "navComp">Adoptions</a>
         </div>
-        <div class="hidden lg:flex items-baseline content-center gap-x-3" id="signupLogInContainer">
-          <a href="#" class="text-base font-bold text-black subpixel-antialiased hover:text-yellow-400"
-            data-modal="signup">SignUp</a>
-          <a href="#"
-            class="rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            data-modal="login">Log-in</a>
+        <div id = "signupLogInContainer" class = "hidden lg:flex items-baseline content-center gap-x-3" >
+          <a href = "#" class = "text-base font-bold text-black subpixel-antialiased hover:text-yellow-400"
+            data-modal = "signup">SignUp</a>
+          <a href = "#"
+            class = "rounded-full bg-black px-6 py-3 text-sm font-bold text-white subpixel-antialiased hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            data-modal = "login">Log-in</a>
         </div>
-        <div class="relative lg:hidden">
-          <input type="checkbox" id="menu-toggle" class="peer hidden" />
-          <label for="menu-toggle" class="cursor-pointer px-2 text-2xl hover:text-yellow-400 lg:hidden">
-            <i class="fa-solid fa-bars inline-block peer-checked:hidden"></i>
-            <i class="fa-solid fa-xmark hidden peer-checked:inline-block"></i>
+        <div class = "relative lg:hidden">
+          <input type = "checkbox" id = "menu-toggle" class = "peer hidden" />
+          <label for = "menu-toggle" class = "cursor-pointer px-2 text-2xl hover:text-yellow-400 lg:hidden">
+            <i class = "fa-solid fa-bars inline-block peer-checked:hidden"></i>
+            <i class = "fa-solid fa-xmark hidden peer-checked:inline-block"></i>
           </label>
-          <div class="fixed mt-4 left-0 w-full hidden transition-all duration-600 peer-checked:block md:hidden">
-            <div class="relative">
-              <div class="absolute h-72 min-w-full bg-white"></div>
-              <div class="absolute w-full h-full">
-                <div class="flex flex-col px-3">
-                  <!-- <a href="#" class="my-2 text-lg font-robo fond-bold text-gray-700 subpixel-antialiased hover:text-amber-400">shop</a> -->
-                  <a href="#bestSelling" class="navComp">Shop.</a>
-                  <a href="#" class="navComp">Adoptions</a>
-                  <a href="#" class="navComp">AboutUs</a>
-                  <a href="#" class="navComp">Contact</a>
+          <div class = "fixed mt-4 left-0 w-full hidden transition-all duration-600 peer-checked:block md:hidden">
+            <div class = "relative">
+              <div class = "absolute h-72 min-w-full bg-white"></div>
+              <div class = "absolute w-full h-full">
+                <div class = "flex flex-col px-3">
+                  <!-- <a href = "#" class = "my-2 text-lg font-robo fond-bold text-gray-700 subpixel-antialiased hover:text-amber-400">shop</a> -->
+                  <a href = "#bestSelling" class = "navComp">Shop.</a>
+                  <a href = "#" class = "navComp">Adoptions</a>
+                  <a href = "#" class = "navComp">About Us</a>
+                  <a href = "#" class = "navComp">Contact</a>
                 </div>
-                <div class="my-4 h-0.5 bg-amber-400"></div>
-                <div class="flex items-center px-3 justify-between gap-4">
-                  <a href="#"
-                    class="text-2xl font-bold text-zinc-800 subpixel-antialiased hover:text-sky-700">SignUp</a>
-                  <a href="#"
-                    class="rounded-full bg-black px-6 py-3 text-sm font-bold text-slate-200 subpixel-antialiased hover:bg-sky-700 hover:text-slate-100">Log-in</a>
+                <div class = "my-4 h-0.5 bg-amber-400"></div>
+                <div class = "flex items-center px-3 justify-between gap-4">
+                  <a href = "#"
+                    class = "text-2xl font-bold text-zinc-800 subpixel-antialiased hover:text-sky-700">SignUp</a>
+                  <a href = "#"
+                    class = "rounded-full bg-black px-6 py-3 text-sm font-bold text-slate-200 subpixel-antialiased hover:bg-sky-700 hover:text-slate-100">Log-in</a>
                 </div>
               </div>
             </div>
@@ -92,71 +86,73 @@
     </div>
   </nav>
   <!-- main -->
-  <main class="w-full px-6 lg:px-14 flex flex-col pt-24 gap-x-8 gap-y-4 bg-amber-50/40">
-    <div class="font-sans mt-8 border-[1px] border-amber-300" id="allBreeds">
-      <div class="flex justify-around items-center py-1 bg-slate-50 rounded-t-xl w-full sticky">
-        <div class="w-2/4" >
-          <h2 class="font-bold">Explore to know more about your companion</h2>
+  <main class = "w-full px-6 lg:px-14 flex flex-col pt-24 gap-x-8 gap-y-4 bg-amber-50/40">
+    <div id = "allBreeds" class = "font-sans mt-8 border-[1px] border-amber-300" >
+      <div class = "flex flex-col md:flex-row justify-around items-center py-1 bg-slate-50 rounded-t-xl w-full sticky">
+        <div class = "w-full px-2 md:w-2/4" >
+          <h2 class = "font-bold">Explore to know more about your companion</h2>
         </div>
-        <div class="p-0 rounded-md flex self-center border-[1px] border-amber-300 md:h-8 md:m-1 w-11/12 sm:w-64">
-          <input id="searchText" type="search" placeholder="search" class="rounded-l-md px-2 w-full" />
-          <button class="border-l-[1px] border-amber-300 w-6 sm:w-8 rounded-r-md text-amber-300">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div> 
-        <div class = "countContainer w-32 border-[1px] border-amber-300 md:h-8 rounded-md flex place-items-center">
-          <p id="countNumber" class="text-center text-slate-700 m-4"></p>Breeds
+        <div class = "flex justify-evenly content-between gap-4 md:place-content-center md:place-items-center">
+          <div class = "p-0 rounded-md flex self-center border-[1px] border-amber-300 md:h-8 md:m-1 w-11/12 sm:w-64">
+            <input id = "searchText" type = "search" placeholder = "search" class = "rounded-l-md px-2 w-full" />
+            <div class = "border-l-[1px] border-amber-300 w-6 sm:w-8 rounded-r-md text-amber-300">
+              <i class = "fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div> 
+          <div class = "countContainer w-32 border-[1px] border-amber-300 px-4 rounded-md flex place-items-center">
+            <p id = "countNumber" class="text-center text-slate-700 px-2 sm:px-0"></p>Breeds
+          </div>
         </div>
       </div>
-      <div class="h-screen overflow-y-scroll ">
-        <ul class="columns-4 px-4  bg-amber-300/10" id="breedList"></ul>
+      <div class = "h-screen overflow-y-scroll ">
+        <ul id = "breedList" class = "columns-2 sm:columns-4 px-4  bg-amber-300/10" ></ul>
       </div>
     </div>
   </main>
 
-  <footer class="fixed w-full lg:px-14 gap-x-8 gap-y-8">
-    <div class="flex flex-col basis-auto rounded-lg bg-orange-100 lg:py-4">
-      <div class="flex">
-        <div class="px-5">
-          <div class="flex py-3">
-            <i class="fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
-            <h2 class="text-3xl font-bold text-myYellow antialiased">
-              pets<span class="text-amber-600 antialiased">Toffeee</span>
+  <footer class = "fixed w-full lg:px-14 gap-x-8 gap-y-8">
+    <div class = "flex flex-col basis-auto rounded-lg bg-orange-100 lg:py-4">
+      <div class = "flex">
+        <div class = "px-5">
+          <div class = "flex py-3">
+            <i class = "fa-solid fa-shield-dog text-5xl font-bold text-myYellow"></i>
+            <h2 class = "text-3xl font-bold text-myYellow antialiased">
+              pets<span class = "text-amber-600 antialiased">Toffeee</span>
             </h2>
           </div>
           <div>
-            <p class="text-red-950 md:text-xl lg:text-2xl">
+            <p class = "text-red-950 md:text-xl lg:text-2xl">
               we strongly believe every pet deserves some love
             </p>
           </div>
         </div>
-        <div class="flex flex-col justify-evenly w-full lg:gap-x- gap-y-2 py-4 px-5 lg:px-10">
-          <div class="flex justify-between">
-            <div class="flex flex-col gap-3">
-              <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">
+        <div class = "flex flex-col justify-evenly w-full lg:gap-x- gap-y-2 py-4 px-5 lg:px-10">
+          <div class = "flex justify-between">
+            <div class = "flex flex-col gap-3">
+              <h3 class = "text-red-950 text-xl lg:text-3xl font-serif font-bold">
                 Information
               </h3>
-              <div class="flex flex-col gap-2">
-                <p class="text-red-950 text-sm lg:text-lg font-semibold">
+              <div class = "flex flex-col gap-2">
+                <p class = "text-red-950 text-sm lg:text-lg font-semibold">
                   Here we Provide service to all kind of farms
                 </p>
               </div>
             </div>
-            <div class="flex flex-col gap-3">
-              <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">
+            <div class = "flex flex-col gap-3">
+              <h3 class = "text-red-950 text-xl lg:text-3xl font-serif font-bold">
                 Menu
               </h3>
-              <div class="flex flex-col gap-2">
-                <p class="text-red-950 text-sm lg:text-lg font-semibold">
-                  AboutUs,
+              <div class = "flex flex-col gap-2">
+                <p class = "text-red-950 text-sm lg:text-lg font-semibold">
+                  About Us,
                 </p>
-                <p class="text-red-950 text-sm lg:text-lg font-semibold">
+                <p class = "text-red-950 text-sm lg:text-lg font-semibold">
                   Categories,
                 </p>
-                <p class="text-red-950 text-sm lg:text-lg font-semibold">
+                <p class = "text-red-950 text-sm lg:text-lg font-semibold">
                   Products,
                 </p>
-                <p class="text-red-950 text-sm lg:text-lg font-semibold">
+                <p class = "text-red-950 text-sm lg:text-lg font-semibold">
                   Pricing,
                 </p>
               </div>
@@ -164,34 +160,30 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col gap-3">
-        <h3 class="text-red-950 text-xl lg:text-3xl font-serif font-bold">
+      <div class = "flex flex-col gap-3">
+        <h3 class = "text-red-950 text-xl lg:text-3xl font-serif font-bold">
           Privacy
         </h3>
-        <div class="flex flex-row gap-2">
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">AboutUs</p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">
+        <div class = "flex flex-row gap-2">
+          <p class = "text-red-950 text-sm lg:text-lg font-semibold">About Us</p>
+          <p class = "text-red-950 text-sm lg:text-lg font-semibold">
             Categories
           </p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">
+          <p class = "text-red-950 text-sm lg:text-lg font-semibold">
             Products
           </p>
-          <p class="text-red-950 text-sm lg:text-lg font-semibold">Pricing</p>
+          <p class = "text-red-950 text-sm lg:text-lg font-semibold">Pricing</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="./constraints.js"></script>
+  <script src="./constants.js"></script>
   <script>
 
     const params = new URLSearchParams(window.location.search);
     const selectedId = params.get("type");
 
-    // let data = breedsList.find(search);
-    // function search(item) {
-    //   return item.id === selectedId;
-    // }
     let data = breedsList[selectedId].breeds;
 
     const displayBreedListArray = []
@@ -223,26 +215,37 @@
     function findBreed(event){
 
       let inputTxt = event.target.value;
-      let regexKey = new RegExp(`(${inputTxt})`,'i');
+      let safeInput = inputTxt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+      let regexKey = new RegExp(`(${safeInput})`,'i');
 
       let breed = displayBreedListArray.filter(checkBreed);
 
       function checkBreed(breeds){
+        
          return regexKey.exec(breeds.name);
       }
 
       container.innerHTML=""
 
-      for(let i =0; i < breed.length;i++){
+      if(breed.length>0){
 
-          const li = document.createElement("li");
-          let breedLink = document.createElement("a");
-          let text = breed[i].name
-          breedLink.innerHTML = text.replace(regexKey,`<mark class="bold">$1</mark>`);
-          breedLink.setAttribute("class", "cursor-pointer text-xs sm:text-sm");
-          li.appendChild(breedLink);
-          container.appendChild(li);
+        for(let i =0; i < breed.length;i++){
 
+            const li = document.createElement("li");
+            let breedLink = document.createElement("a");
+            let text = breed[i].name
+            breedLink.innerHTML = text.replace(regexKey,`<mark class="font-semibold">$1</mark>`);
+            breedLink.setAttribute("class", "cursor-pointer text-xs sm:text-sm");
+            li.appendChild(breedLink);
+            container.appendChild(li);
+
+        }
+      }else{
+        const notFound = document.createElement("li");
+        notFound.setAttribute("class", "cursor-pointer text-sm sm:text-2xl font-bold");
+        notFound.innerHTML="0 Results Found"
+        container.appendChild(notFound);
       }
 
       document.getElementById("countNumber").innerText= breed.length;
@@ -250,9 +253,7 @@
     }
 
     function debounceFunction(fn,delay){ 
-
       let timer;  
-
       return function(event){
         clearTimeout(timer);
         timer = setTimeout(function(){ fn(event); }, delay);
