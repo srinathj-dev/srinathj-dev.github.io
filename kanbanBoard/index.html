@@ -13,6 +13,56 @@
   <link
     href = "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel = "stylesheet">
+    <style>
+      #toDoContainer .taskProgressContainerBorder{
+        border: 2px solid #d8d3e5;
+      }
+
+      #progressContainer .taskProgressContainerBorder{
+        border: 2px solid #cad9cf;
+      }
+
+      #reviewContainer .taskProgressContainerBorder{
+        border: 2px solid #dad4d3;
+      }
+
+      #doneContainer .taskProgressContainerBorder{
+        border: 2px solid #93C5FD;
+      }
+
+      #toDoContainer .taskProgressContainerBorder p{
+        background: conic-gradient(#d8d3e5 0%, transparent 0);
+      }
+      
+      #progressContainer .taskProgressContainerBorder p{
+       background: conic-gradient(#cad9cf 33%, transparent 0);
+      }
+
+      #reviewContainer .taskProgressContainerBorder p{
+        background: conic-gradient(#dad4d3 66%, transparent 0);
+      }
+
+      #doneContainer .taskProgressContainerBorder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #93C5FD;
+
+      }
+
+      #doneContainer .taskProgressContainerBorder p {
+        width: auto;
+        height: auto;
+      }
+
+      #doneContainer .taskProgressContainerBorder p::before {
+        content: "\2714";
+        font-size: 6px;
+        color: #93C5FD;
+        font-weight: bold;
+      }
+
+    </style>
 </head>
 
 <body class = "w-screen h-dvh box-border  bg-[#f9f9fb] relative  overflow-y-scroll ">

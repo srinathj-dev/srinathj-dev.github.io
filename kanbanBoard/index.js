@@ -36,7 +36,7 @@ function displayCards() {
         taskProgressHeadingContainer.classList.add("flex", "items-center", "gap-2");
 
         const taskProgressContainer = document.createElement("div");
-        taskProgressContainer.classList.add("rounded-full", "flex", "items-center", "justify-center", "flex-wrap", "w-4", "h-4", "border-2", "border-slate-200");
+        taskProgressContainer.classList.add("taskProgressContainerBorder","rounded-full", "flex", "items-center", "justify-center", "flex-wrap", "w-4", "h-4", "border-2");
 
 
         const taskProgress = document.createElement("p");
@@ -90,35 +90,35 @@ function displayCards() {
             progressColor = "#d8d3e5"
             toDoCount++;
 
-            taskProgress.style.background = `conic-gradient(#93C5FD ${progressPercent}%, transparent 0)`;
-            taskProgressContainer.style.borderColor = "#d8d3e5";
+            // taskProgress.style.background = `conic-gradient(#93C5FD ${progressPercent}%, transparent 0)`;
+            // taskProgressContainer.style.borderColor = "#d8d3e5";
 
             toDoContainer.prepend(taskContainer)
         } else if (tasks[i].status == "progress") {
             progressPercent = 33.3;
             progressColor = "#cad9cf"
             progressCount++;
-            taskProgressContainer.style.borderColor = "#cad9cf";
-            taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
+            // taskProgressContainer.style.borderColor = "#cad9cf";
+            // taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
             taskProgressContainer.classList.add("border-red-400");
             progressContainer.prepend(taskContainer)
         } else if (tasks[i].status == "review") {
             progressPercent = 66.3;
             progressColor = "#dad4d3"
             reviewCount++;
-            taskProgressContainer.style.borderColor = "#dad4d3";
-            taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
+            // taskProgressContainer.style.borderColor = "#dad4d3";
+            // taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
             reviewContainer.prepend(taskContainer)
         } else if (tasks[i].status == "done") {
           
             progressColor = "#93C5FD"
-            taskProgressContainer.style.borderColor = "#93C5FD";
+            // taskProgressContainer.style.borderColor = "#93C5FD";
             doneCount++;
             taskProgress.classList.add("flex", "items-center", "justify-center", "font-bold")
 
-            const completedIcon = document.createElement("i");
-            completedIcon.classList.add("text-[10px]", "text-[#93C5FD]", "fa-solid", "fa-check", "font-bold");
-            taskProgress.appendChild(completedIcon);
+            // const completedIcon = document.createElement("i");
+            // completedIcon.classList.add("text-[10px]", "text-[#93C5FD]", "fa-solid", "fa-check", "font-bold");
+            // taskProgress.appendChild(completedIcon);
       
             doneContainer.prepend(taskContainer)
         }
@@ -144,10 +144,11 @@ function addNewCard(tasksid, id, tittle, desc){
         taskProgressHeadingContainer.classList.add("flex", "items-center", "gap-2");
 
         const taskProgressContainer = document.createElement("div");
-        taskProgressContainer.classList.add("rounded-full", "flex", "items-center", "justify-center", "flex-wrap", "w-4", "h-4", "border-2", "border-slate-200");
+        taskProgressContainer.classList.add("taskProgressContainerBorder", "rounded-full", "flex", "items-center", "justify-center", "flex-wrap", "w-4", "h-4", "border-2");
 
         const taskProgress = document.createElement("p");
-        taskProgress.classList.add("w-2", "h-2", "rounded-full");
+        taskProgress.classList.add("w-2", "h-2", "rounded-full", "progressContainer");
+        
 
         const headingContainer = document.createElement("div");
 
@@ -194,22 +195,22 @@ function addNewCard(tasksid, id, tittle, desc){
 
         let progressPercent;
         let progressColor;
-        if(taskbody == "toDoContainer") {
+        if(taskbody.id == "toDoContainer") {
             progressPercent = 0;
             progressColor = "#d8d3e5"
             toDoCount++;
-            taskProgress.style.background = `conic-gradient(#93C5FD ${progressPercent}%, transparent 0)`;
-            taskProgressContainer.style.borderColor = "#d8d3e5";
+            taskProgress.style.background = `conic-gradient(#d8d3e5 ${progressPercent}%, transparent 0)`;
+            // taskProgressContainer.style.borderColor = "#d8d3e5";
 
-        } else if(taskbody == "progressContainer") {
+        } else if(taskbody.id == "progressContainer") {
             progressPercent = 33.3;
             progressColor = "#cad9cf"
             progressCount++;
             taskProgressContainer.style.borderColor = "#cad9cf";
             taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
-            taskProgressContainer.classList.add("border-red-400");
+            // taskProgressContainer.classList.add("border-red-400");
            
-        } else if (taskbody == "reviewContainer") {
+        } else if (taskbody.id == "reviewContainer") {
             progressPercent = 66.3;
             progressColor = "#dad4d3"
             reviewCount++;
@@ -217,7 +218,7 @@ function addNewCard(tasksid, id, tittle, desc){
             taskProgress.style.background = `conic-gradient(${progressColor} ${progressPercent}%, transparent 0)`;
           
 
-        } else if (taskbody == "doneContainer") {
+        } else if (taskbody.id == "doneContainer") {
             // progressPercent = 100;
             progressColor = "#93C5FD"
             taskProgressContainer.style.borderColor = "#93C5FD";
@@ -343,16 +344,19 @@ columnContainers.addEventListener("drop", function (event) {
 
     if (dropArea.id === "toDoContainer") {
         dragItem.status = "toDo";
+       
     } else if (dropArea.id === "progressContainer") {
         dragItem.status = "progress";
     } else if (dropArea.id === "reviewContainer") {
         dragItem.status = "review";
+       
     } else if (dropArea.id === "doneContainer") {
         dragItem.status = "done";
+       
     }
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    dropArea.querySelector(".tasksContainer").prepend(tempItem)
     
+     dropArea.querySelector(".tasksContainer").prepend(tempItem)
     // displayCards();
     console.log(dragItem.status)
 
