@@ -21,8 +21,7 @@ function displayCards() {
     reviewContainer.innerHTML = ""
     doneContainer.innerHTML = ""
 
-    setTimeout(() => {
-
+    
     for (let i = 0; i < tasks.length; i++) {
 
         const taskContainer = document.createElement("div");
@@ -129,7 +128,7 @@ function displayCards() {
     document.getElementById("progressCount").innerText = progressCount;
     document.getElementById("reviewCount").innerText = reviewCount;
     document.getElementById("doneCount").innerText = doneCount;
-    }, 100);
+    
 }
 
 function addNewCard(tasksid, id, tittle, desc){
